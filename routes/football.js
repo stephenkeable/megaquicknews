@@ -26,20 +26,6 @@ router.get('/', function (req, res, next) {
             
             res.locals.title = "Football News";
 
-//            parser.parseString(body, function (err, result) {
-//
-//                channel = result.rss.channel;
-//
-//                for (i = 0; i < channel.length; i++) {
-//
-//                    items = channel[i].item;
-//
-//                    res.locals.news_items = items;
-//
-//                }
-//
-//            });
-
         }
 
         next();
@@ -48,7 +34,8 @@ router.get('/', function (req, res, next) {
 }, function (req, res) {
     
     //set cache control headers
-	res.set("Cache-Control","max-age=86400");
+	res.set("Cache-Control","max-age=1800");
+    res.set("Vary", "Accept-Encoding");
 
     res.render('football' , { 
   		hostname: req.hostname,
