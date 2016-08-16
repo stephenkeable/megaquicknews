@@ -1,0 +1,13 @@
+<h1>{{ title }}</h1>
+
+{{#each news_items}}
+<p>
+    <strong>{{webTitle}}</strong><br>
+    {{fields.trailText}}<br>
+    <a href="{{ webUrl }}">Read more &raquo;</a>
+</p>
+{{/each}}
+
+<hr>
+
+<a href="https://www.theguardian.com/open-platform"><img src="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2010/03/01/poweredbyguardianBLACK.png" alt="Powered by The Guardian"></a>

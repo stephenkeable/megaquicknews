@@ -1,0 +1,27 @@
+{
+  "name": "wap-portal",
+  "version": "0.0.1",
+  "description": "Portal for old phone users",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephenkeable/wap-portal.git"
+  },
+  "author": "Stephen Keable",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephenkeable/wap-portal/issues"
+  },
+  "homepage": "https://github.com/stephenkeable/wap-portal#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "express-less": "0.0.8",
+    "hbs": "^4.0.0",
+    "request": "^2.72.0",
+    "xml2js": "^0.4.16"
+  }
+}
