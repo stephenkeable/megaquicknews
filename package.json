@@ -2,6 +2,9 @@
   "name": "news2g",
   "version": "0.0.1",
   "description": "Portal for old phone users",
+  "engines": {
+    "node": "5.9.1"
+  },
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stephenkeable/wap-portal.git"
+    "url": "git+https://github.com/stephenkeable/2gnews.git"
   },
   "author": "Stephen Keable",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/stephenkeable/wap-portal/issues"
+    "url": "https://github.com/stephenkeable/2gnews/issues"
   },
-  "homepage": "https://github.com/stephenkeable/wap-portal#readme",
+  "homepage": "https://github.com/stephenkeable/2gnews#readme",
   "dependencies": {
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
