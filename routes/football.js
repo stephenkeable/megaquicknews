@@ -44,6 +44,44 @@ router.get('/', function (req, res, next) {
     
 });
 
+// GET index
+
+router.get('/reports', function (req, res, next) {
+    
+    res.locals.page_title = "Football Match Reports";
+    
+    var parser = new xml2js.Parser();
+    
+    var request_url = "https://content.guardianapis.com/football?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/matchreports&show-fields=trailText";
+        
+    request(request_url, function (error, response, body) {
+
+        if (!error && response.statusCode == 200) {
+            
+            guardian_object = JSON.parse(body);
+            
+            res.locals.news_items = guardian_object.response.results;
+            
+            res.locals.title = "Football Match Reports";
+
+        }
+
+        next();
+        
+    });
+}, function (req, res) {
+    
+    //set cache control headers
+	res.set("Cache-Control","max-age=1800");
+    res.set("Vary", "Accept-Encoding");
+
+    res.render('football' , { 
+  		hostname: req.hostname,
+  		website: req.website
+  	});
+    
+});
+
 // GET norwich
 
 router.get('/norwich', function (req, res, next) {
