@@ -1,8 +1,12 @@
+<style>
+section h1{background:#630;}
+</style>
 <h1>{{ title }}</h1>
-
+<ul>
 {{#each news_items}}
-<p>
+<li>
     <strong>{{title}}</strong><br>
     {{description}}
-</p>
+</li>
 {{/each}}
+    </ul>
