@@ -1,9 +1,11 @@
 <h1>{{ title }}</h1>
 
+<ul>
 {{#each news_items}}
-<p>
+<li>
     <strong>{{webTitle}}</strong><br>
     {{{fields.trailText}}}<br>
     <a href="{{ webUrl }}/amp">Read more &raquo;</a>
-</p>
+</li>
 {{/each}}
+</ul>
