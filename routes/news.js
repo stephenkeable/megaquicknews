@@ -10,7 +10,7 @@ var router = express.Router();
 
 router.get('/', function (req, res, next) {
     
-    res.locals.page_title = "BBC News";
+    res.locals.title = "BBC News";
     
     var parser = new xml2js.Parser();
     
