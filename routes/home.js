@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.get('/', function (req, res, next) {
     
-    res.locals.page_title = "WAP portal";
+    res.locals.page_title = "2G News";
     
     next();
     
@@ -11,6 +11,7 @@ router.get('/', function (req, res, next) {
     
     //set cache control headers
 	res.set("Cache-Control","max-age=86400");
+    res.set("Vary", "Accept-Encoding");
 
     res.render('home' , { 
   		title: res.locals.page_title,

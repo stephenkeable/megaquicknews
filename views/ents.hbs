@@ -2,11 +2,13 @@
 section h1{background:#036;}
 </style>
 <h1>{{ title }}</h1>
+
 <ul>
 {{#each news_items}}
 <li>
-    <strong>{{title}}</strong><br>
-    {{description}}
+    <strong>{{webTitle}}</strong><br>
+    {{{fields.trailText}}}<br>
+    <a href="{{ webUrl }}/amp">Read more &raquo;</a>
 </li>
 {{/each}}
 </ul>
