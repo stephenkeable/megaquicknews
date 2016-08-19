@@ -18,7 +18,7 @@ router.get('/', function (req, res, next) {
             
             res.locals.news_items = guardian_object.response.results;
             
-            res.locals.title = "News";
+            res.locals.title = "Sport News";
 
         }
 
@@ -31,16 +31,16 @@ router.get('/', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('news' , { 
+    res.render('sport' , { 
   		hostname: req.hostname,
   		website: req.website
   	});
     
 });
 
-// GET tv
+// GET football
 
-router.get('/uk', function (req, res, next) {
+router.get('/football', function (req, res, next) {
             
     var request_url = "https://content.guardianapis.com/football?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/matchreports,tone/news&show-fields=trailText";
         
@@ -52,7 +52,7 @@ router.get('/uk', function (req, res, next) {
             
             res.locals.news_items = guardian_object.response.results;
             
-            res.locals.title = "UK News";
+            res.locals.title = "Football News";
 
         }
 
@@ -65,7 +65,7 @@ router.get('/uk', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('news' , { 
+    res.render('sport' , { 
   		hostname: req.hostname,
   		website: req.website
   	});

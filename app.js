@@ -23,8 +23,11 @@ app.use('/', home);
 var news = require('./routes/news');
 app.use('/news', news);
 
-var football = require('./routes/football');
-app.use('/football', football);
+var sport = require('./routes/sport');
+app.use('/sport', sport);
+
+var ents = require('./routes/ents');
+app.use('/entertainment', ents);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
