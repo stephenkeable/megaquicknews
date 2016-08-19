@@ -76,7 +76,7 @@ router.get('/football', function (req, res, next) {
 
 router.get('/cricket', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/circket&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/cricket&show-fields=trailText";
         
     request(request_url, function (error, response, body) {
 
