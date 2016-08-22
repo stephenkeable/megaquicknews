@@ -27,6 +27,6 @@
     "hbs": "^4.0.0",
     "request": "^2.72.0",
     "xml2js": "^0.4.16",
-    "html-minifier":"3.0.2"
+    "express-minify-html":"0.5.0"
   }
 }
