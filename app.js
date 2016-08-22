@@ -3,6 +3,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var expressLess = require('express-less');
 var http = require('http');
+var minifyHTML = require('express-minify-html');
 
 var app = express();
 
@@ -14,6 +15,8 @@ app.set('port', (process.env.PORT || 80));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/less-css', expressLess(__dirname + '/public/styles/', { compress: true }));
+
+app.use(minifyHTML());
 
 // sections
 
