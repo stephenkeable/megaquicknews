@@ -4,12 +4,19 @@ var bodyParser = require('body-parser');
 var expressLess = require('express-less');
 var http = require('http');
 var minifyHTML = require('express-minify-html');
+var striptags = require('striptags');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+var hbs = require('hbs');
+
+hbs.registerHelper('striptags', function(input_text) {
+  return striptags(input_text);
+});
 
 app.set('port', (process.env.PORT || 80));
 
