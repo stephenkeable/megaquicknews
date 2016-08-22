@@ -8,7 +8,7 @@ var router = express.Router();
 
 router.get('/', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/culture?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/culture?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
@@ -42,7 +42,7 @@ router.get('/', function (req, res, next) {
 
 router.get('/tv', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/tv-and-radio?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/tv-and-radio?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
@@ -76,7 +76,7 @@ router.get('/tv', function (req, res, next) {
 
 router.get('/film', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/film?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/film?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
@@ -110,7 +110,7 @@ router.get('/film', function (req, res, next) {
 
 router.get('/music', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/music?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/music?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
@@ -145,7 +145,7 @@ router.get('/music', function (req, res, next) {
 
 router.get('/books', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/books?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/books?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
@@ -180,7 +180,7 @@ router.get('/books', function (req, res, next) {
 
 router.get('/stage', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/stage?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/stage?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
@@ -215,7 +215,7 @@ router.get('/stage', function (req, res, next) {
 
 router.get('/games', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/news?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=technology/games&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/news?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=technology/games&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
@@ -250,7 +250,7 @@ router.get('/games', function (req, res, next) {
 
 router.get('/art', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/artanddesign?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/artanddesign?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
