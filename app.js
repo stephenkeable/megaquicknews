@@ -16,7 +16,17 @@ app.set('port', (process.env.PORT || 80));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/less-css', expressLess(__dirname + '/public/styles/', { compress: true }));
 
-app.use(minifyHTML());
+app.use(minifyHTML({
+  override:      true,
+    htmlMinifier: {
+        removeComments:            true,
+        collapseWhitespace:        true,
+        collapseBooleanAttributes: true,
+        removeAttributeQuotes:     true,
+        removeEmptyAttributes:     true,
+        minifyJS:                  true
+    }
+}));
 
 // sections
 
