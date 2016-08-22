@@ -7,7 +7,7 @@ section h1{background:#036;}
 {{#each news_items}}
 <li>
     <strong>{{webTitle}}</strong><br>
-    {{{fields.trailText}}}<br>
+    {{striptags fields.trailText}}<br>
     <a href="{{ webUrl }}/amp">Read more &raquo;</a>
 </li>
 {{/each}}
