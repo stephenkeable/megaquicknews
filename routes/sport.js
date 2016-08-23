@@ -8,7 +8,7 @@ var router = express.Router();
 
 router.get('/', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=-tone/minutebyminute&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=-tone/minutebyminute&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
