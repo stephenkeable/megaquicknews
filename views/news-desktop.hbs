@@ -1,11 +1,11 @@
 <style>
-section h1{background:#036;}
+section h1{background:#c30;}
 </style>
 <h1>{{ title }}</h1>
 
 <ul>
 {{#each news_items}}
-<li>
+<li data-image="{{fields.thumbnail}}">
     <strong>{{webTitle}}</strong><br>
     {{striptags fields.trailText}}<br>
     <a href="{{ webUrl }}/amp">Read more &raquo;</a>
