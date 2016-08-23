@@ -71,6 +71,12 @@ router.get('/football', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "sport-desktop";
+    } else {
+        var view_name = "sport";
+    }
+
     res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
@@ -104,6 +110,12 @@ router.get('/cricket', function (req, res, next) {
     //set cache control headers
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
+
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "sport-desktop";
+    } else {
+        var view_name = "sport";
+    }
 
     res.render(view_name , { 
   		hostname: req.hostname,
@@ -139,6 +151,12 @@ router.get('/f1', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "sport-desktop";
+    } else {
+        var view_name = "sport";
+    }
+
     res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
@@ -172,6 +190,12 @@ router.get('/tennis', function (req, res, next) {
     //set cache control headers
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
+
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "sport-desktop";
+    } else {
+        var view_name = "sport";
+    }
 
     res.render(view_name , { 
   		hostname: req.hostname,
@@ -207,6 +231,12 @@ router.get('/golf', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "sport-desktop";
+    } else {
+        var view_name = "sport";
+    }
+
     res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
@@ -240,6 +270,12 @@ router.get('/cycling', function (req, res, next) {
     //set cache control headers
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
+
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "sport-desktop";
+    } else {
+        var view_name = "sport";
+    }
 
     res.render(view_name , { 
   		hostname: req.hostname,
@@ -275,6 +311,12 @@ router.get('/rugby-union', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "sport-desktop";
+    } else {
+        var view_name = "sport";
+    }
+
     res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
@@ -308,6 +350,12 @@ router.get('/rugby-league', function (req, res, next) {
     //set cache control headers
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
+
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "sport-desktop";
+    } else {
+        var view_name = "sport";
+    }
 
     res.render(view_name , { 
   		hostname: req.hostname,
