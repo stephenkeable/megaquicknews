@@ -4,12 +4,6 @@ var request = require('request');
 var express = require('express');
 var router = express.Router();
 
-if (router.req.get('CloudFront-Is-Desktop-Viewer') == "true") {
-    var view_name = "sport-desktop";
-} else {
-    var view_name = "sport";
-}
-
 // GET index
 
 router.get('/', function (req, res, next) {
@@ -36,6 +30,12 @@ router.get('/', function (req, res, next) {
     //set cache control headers
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
+
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "sport-desktop";
+    } else {
+        var view_name = "sport";
+    }
 
     res.render(view_name , { 
   		hostname: req.hostname,
