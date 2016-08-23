@@ -4,7 +4,7 @@ var request = require('request');
 var express = require('express');
 var router = express.Router();
 
-if (request.get('CloudFront-Is-Desktop-Viewer') == "true") {
+if (router.req.get('CloudFront-Is-Desktop-Viewer') == "true") {
     var view_name = "sport-desktop";
 } else {
     var view_name = "sport";
