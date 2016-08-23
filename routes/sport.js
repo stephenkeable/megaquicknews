@@ -48,7 +48,7 @@ router.get('/', function (req, res, next) {
 
 router.get('/football', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/football?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=-tone/minutebyminute&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/football?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=-tone/minutebyminute&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
@@ -88,7 +88,7 @@ router.get('/football', function (req, res, next) {
 
 router.get('/cricket', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/cricket&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/cricket&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
@@ -128,7 +128,7 @@ router.get('/cricket', function (req, res, next) {
 
 router.get('/f1', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/formulaone&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/formulaone&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
@@ -168,7 +168,7 @@ router.get('/f1', function (req, res, next) {
 
 router.get('/tennis', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/tennis&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/tennis&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
@@ -208,7 +208,7 @@ router.get('/tennis', function (req, res, next) {
 
 router.get('/golf', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/golf&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/golf&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
@@ -248,7 +248,7 @@ router.get('/golf', function (req, res, next) {
 
 router.get('/cycling', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/cycling&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/cycling&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
@@ -288,7 +288,7 @@ router.get('/cycling', function (req, res, next) {
 
 router.get('/rugby-union', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/rugby-union&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/rugby-union&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
@@ -328,7 +328,7 @@ router.get('/rugby-union', function (req, res, next) {
 
 router.get('/rugby-league', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/rugbyleague&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/sport?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=sport/rugbyleague&show-fields=trailText,thumbnail";
         
     request(request_url, function (error, response, body) {
 
