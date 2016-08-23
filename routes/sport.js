@@ -20,15 +20,15 @@ router.get('/', function (req, res, next) {
             
             res.locals.title = "Sport News";
             
-            res.locals.is_mobile = req.get('CloudFront-Is-Mobile-Viewer');
-            res.locals.is_desktop = req.get('CloudFront-Is-Desktop-Viewer');
-            res.locals.is_tablet = req.get('CloudFront-Is-Tablet-Viewer');
-            res.locals.is_tv = req.get('CloudFront-Is-SmartTV-Viewer');
+            //res.locals.is_mobile = req.get('CloudFront-Is-Mobile-Viewer');
+            //res.locals.is_desktop = req.get('CloudFront-Is-Desktop-Viewer');
+            //res.locals.is_tablet = req.get('CloudFront-Is-Tablet-Viewer');
+            //res.locals.is_tv = req.get('CloudFront-Is-SmartTV-Viewer');
             
-            console.log("mobile" + req.get('CloudFront-Is-Mobile-Viewer'));
-            console.log("desktop" + req.get('CloudFront-Is-Desktop-Viewer'));
-            console.log("tablet" + req.get('CloudFront-Is-Tablet-Viewer'));
-            console.log("tv" + req.get('CloudFront-Is-SmartTV-Viewer'));
+            //console.log("mobile" + req.get('CloudFront-Is-Mobile-Viewer'));
+            //console.log("desktop" + req.get('CloudFront-Is-Desktop-Viewer'));
+            //console.log("tablet" + req.get('CloudFront-Is-Tablet-Viewer'));
+            //console.log("tv" + req.get('CloudFront-Is-SmartTV-Viewer'));
 
         }
 
