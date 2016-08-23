@@ -4,7 +4,12 @@ var request = require('request');
 var express = require('express');
 var router = express.Router();
 
-var view_name = "sport";
+if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var view_name = "sport-desktop";
+} else {
+    var view_name = "sport";
+}
+
 // GET index
 
 router.get('/', function (req, res, next) {
@@ -66,7 +71,7 @@ router.get('/football', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('sport' , { 
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
@@ -100,7 +105,7 @@ router.get('/cricket', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('sport' , { 
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
@@ -134,7 +139,7 @@ router.get('/f1', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('sport' , { 
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
@@ -168,7 +173,7 @@ router.get('/tennis', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('sport' , { 
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
@@ -202,7 +207,7 @@ router.get('/golf', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('sport' , { 
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
@@ -236,7 +241,7 @@ router.get('/cycling', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('sport' , { 
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
@@ -270,7 +275,7 @@ router.get('/rugby-union', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('sport' , { 
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
@@ -304,7 +309,7 @@ router.get('/rugby-league', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('sport' , { 
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});

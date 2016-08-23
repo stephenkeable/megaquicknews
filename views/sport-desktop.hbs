@@ -3,12 +3,24 @@ section h1{background:#360;}
 </style>
 <h1>{{ title }}</h1>
 
-<ul>
+<ul id="news-list">
 {{#each news_items}}
-<li data-image="{{fields.thumbnail}}">
+<li data-image="{{fields.thumbnail}}" data-alt="{{webTitle}}">
     <strong>{{webTitle}}</strong><br>
     {{striptags fields.trailText }}<br>
     <a href="{{ webUrl }}/amp">Read more &raquo;</a>
 </li>
 {{/each}}
 </ul>
+
+<script>
+    var list = document.getElementById("news-list").childNodes;
+    for (i = 0; i < list.length; i++) { 
+        image_url = list[i].getAttribute("data-image");
+        image_alt = list[i].getAttribute("data-alt");
+        the_image = document.createElement("img");
+        the_image.setAttribute('src', image_url);
+        the_image.setAttribute('alt', image_alt);
+        list[i].insertBefore(the_image, list[i].firstChild);
+    }
+</script>
