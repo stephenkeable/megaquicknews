@@ -4,6 +4,7 @@ var request = require('request');
 var express = require('express');
 var router = express.Router();
 
+var view_name = "sport";
 // GET index
 
 router.get('/', function (req, res, next) {
@@ -31,7 +32,7 @@ router.get('/', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('sport' , { 
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
