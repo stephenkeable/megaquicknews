@@ -251,7 +251,7 @@ router.get('/stage', function (req, res, next) {
 
 router.get('/games', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/news?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=technology/games&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/search?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=technology/games&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
