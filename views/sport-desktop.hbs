@@ -22,9 +22,11 @@ section ul li img{max-width:100%;height:auto;display:block;margin-bottom:5px;}
 {{/each}}
 </ul>
 <script>
-    var list = document.getElementById("news-list").childNodes;
-    for (i = 0; i < list.length; i++) { 
-        image_url = list[i].firstChild.getAttribute("data-src");
-        list[i].firstChild.setAttribute('src', image_url);
-    }
+    (function() {
+        var list = document.getElementById("news-list").childNodes;
+        for (i = 0; i < list.length; i++) { 
+            image_url = list[i].firstChild.getAttribute("data-src");
+            list[i].firstChild.setAttribute('src', image_url);
+        }
+    })();
 </script>

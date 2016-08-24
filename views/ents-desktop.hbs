@@ -9,11 +9,11 @@ section ul li img{max-width:100%;height:auto;display:block;margin-bottom:5px;}
 </style>
 <h1>{{ title }}</h1>
 
-<ul>
+<ul id="news-list">
 {{#each news_items}}
 <li>
     {{#if fields.thumbnail}}
-    <img src="{{fields.thumbnail}}" alt="{{webTitle}}">
+    <img src="http://img.2gnews.com/placeholder.png" data-src="{{fields.thumbnail}}" alt="{{webTitle}}">
     {{/if}}
     <strong>{{webTitle}}</strong><br>
     {{striptags fields.trailText}}<br>
@@ -21,3 +21,12 @@ section ul li img{max-width:100%;height:auto;display:block;margin-bottom:5px;}
 </li>
 {{/each}}
 </ul>
+<script>
+    (function() {
+        var list = document.getElementById("news-list").childNodes;
+        for (i = 0; i < list.length; i++) { 
+            image_url = list[i].firstChild.getAttribute("data-src");
+            list[i].firstChild.setAttribute('src', image_url);
+        }
+    })();
+</script>
