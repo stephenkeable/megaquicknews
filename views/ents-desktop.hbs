@@ -1,11 +1,20 @@
 <style>
 section h1{background:#036;}
+    @media (min-width:420px) {
+section ul{padding:0 5px;}
+section ul:after{content:"";display:table;clear:both;}
+section ul li{width:300px;margin:10px 5px;float:left;height:450px;overflow:hidden;}
+    }
+section ul li img{max-width:100%;height:auto;display:block;margin-bottom:5px;}
 </style>
 <h1>{{ title }}</h1>
 
 <ul>
 {{#each news_items}}
-<li data-image="{{fields.thumbnail}}">
+<li>
+    {{#if fields.thumbnail}}
+    <img src="{{fields.thumbnail}}" alt="{{webTitle}}">
+    {{/if}}
     <strong>{{webTitle}}</strong><br>
     {{striptags fields.trailText}}<br>
     <a href="{{ webUrl }}/amp">Read more &raquo;</a>
