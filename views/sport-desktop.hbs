@@ -11,14 +11,17 @@ section ul li img{max-width:100%;height:auto;display:block;margin-bottom:5px;}
 
 <ul id="news-list">
 {{#each news_items}}
-<li data-image="{{fields.thumbnail}}" data-alt="{{webTitle}}">
+<li>
+    {{#if fields.thumbnail}}
+    <img src="{{fields.thumbnail}}" alt="{{webTitle}}">
+    {{/if}}
     <strong>{{webTitle}}</strong><br>
     {{striptags fields.trailText }}<br>
     <a href="{{ webUrl }}/amp">Read more &raquo;</a>
 </li>
 {{/each}}
 </ul>
-
+<!--
 <script>
     var list = document.getElementById("news-list").childNodes;
     for (i = 0; i < list.length; i++) { 
@@ -30,3 +33,4 @@ section ul li img{max-width:100%;height:auto;display:block;margin-bottom:5px;}
         list[i].insertBefore(the_image, list[i].firstChild);
     }
 </script>
+-->
