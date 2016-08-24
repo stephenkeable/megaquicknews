@@ -8,7 +8,7 @@ var router = express.Router();
 
 router.get('/', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/news?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/news?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -31,7 +31,13 @@ router.get('/', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('news' , { 
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "news-desktop";
+    } else {
+        var view_name = "news";
+    }
+
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
@@ -42,7 +48,7 @@ router.get('/', function (req, res, next) {
 
 router.get('/uk', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/uk-news?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/uk-news?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -65,7 +71,13 @@ router.get('/uk', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('news' , { 
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "news-desktop";
+    } else {
+        var view_name = "news";
+    }
+
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
@@ -76,7 +88,7 @@ router.get('/uk', function (req, res, next) {
 
 router.get('/world', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/world?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/world?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -99,7 +111,13 @@ router.get('/world', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('news' , { 
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "news-desktop";
+    } else {
+        var view_name = "news";
+    }
+
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
@@ -110,7 +128,7 @@ router.get('/world', function (req, res, next) {
 
 router.get('/tech', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/technology?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/technology?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -133,7 +151,13 @@ router.get('/tech', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('news' , { 
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "news-desktop";
+    } else {
+        var view_name = "news";
+    }
+
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
@@ -144,7 +168,7 @@ router.get('/tech', function (req, res, next) {
 
 router.get('/science', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/science?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/science?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -167,7 +191,13 @@ router.get('/science', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('news' , { 
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "news-desktop";
+    } else {
+        var view_name = "news";
+    }
+
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
@@ -178,7 +208,7 @@ router.get('/science', function (req, res, next) {
 
 router.get('/business', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/business?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/business?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -201,7 +231,13 @@ router.get('/business', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('news' , { 
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "news-desktop";
+    } else {
+        var view_name = "news";
+    }
+
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
@@ -212,7 +248,7 @@ router.get('/business', function (req, res, next) {
 
 router.get('/money', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/money?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText";
+    var request_url = "https://content.guardianapis.com/money?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -235,7 +271,13 @@ router.get('/money', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    res.render('news' , { 
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+        var view_name = "news-desktop";
+    } else {
+        var view_name = "news";
+    }
+
+    res.render(view_name , { 
   		hostname: req.hostname,
   		website: req.website
   	});
