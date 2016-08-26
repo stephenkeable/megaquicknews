@@ -25,8 +25,8 @@ section ul li img{max-width:100%;height:auto;display:block;margin-bottom:5px;}
     (function() {
         var list = document.getElementById("news-list").childNodes;
         for (i = 0; i < list.length; i++) { 
-            image_url = list[i].firstChild.getAttribute("data-src");
-            list[i].firstChild.setAttribute('src', image_url);
+            image_url = list[i].firstChild.firstChild.getAttribute("data-src");
+            list[i].firstChild.firstChild.setAttribute('src', image_url);
         }
     })();
 </script>
