@@ -5,6 +5,7 @@ var expressLess = require('express-less');
 var http = require('http');
 var minifyHTML = require('express-minify-html');
 var striptags = require('striptags');
+var favicon = require('serve-favicon');
 
 var app = express();
 
@@ -56,6 +57,9 @@ app.get('/robots.txt', function (req, res) {
     res.send("User-agent: Googlebot-Image\nDisallow: /\n\nUser-agent: *\nDisallow: ");
     
 });
+
+// favicon
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
