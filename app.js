@@ -53,7 +53,7 @@ app.use('/entertainment', ents);
 app.get('/robots.txt', function (req, res) {
 	
     res.type('text/plain');
-    res.send("User-agent: Googlebot-Image\nDisallow: /\n\nUser-agent: *\nDisallow: /");
+    res.send("User-agent: Googlebot-Image\nDisallow: /\n\nUser-agent: *\nDisallow: ");
     
 });
 
