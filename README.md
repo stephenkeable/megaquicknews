@@ -4,9 +4,9 @@ A news website based around the idea that if you can make a website load quickly
 
 So using content from [The Guardian newspaper's open platform](http://open-platform.theguardian.com/) the bare minimal (without looking too ugly) HTML, CSS and JS. You can get the latest headlines to your phone, tablet or desktop, without using too much data or waiting forever.
 
-So on the front end along with minimal code where possible, we are using Cloudfront as a CDN and using the device detection headers, to serve two different templates, one with images for desktop and one without for other devices. 
+So on the front end along with minimal code where possible, we are using Cloudfront as a CDN and using the device detection headers, to serve two different templates, one with images for desktop and one without for other devices. Cloudfront also handles our GZIP along the way too.
 
-Then on the back end we are using Node and Express running on pair of small Heroku Dynos, these consume the content, put them into a template, minify the code and GZIP it all up.
+Then on the back end we are using Node and Express running on pair of small Heroku Dynos, these consume the content, put them into a template and minify the code.
 
 This means we end up with a page of around 7KB with 12 news headlines, summaries and links to the AMP versions of the full stories. For desktop devices we also load a placeholder image of about 1KB, followed by lazy loading the images which come to around 300KB in total (no control over the size of these, due to terms of the Open Platform).
 
