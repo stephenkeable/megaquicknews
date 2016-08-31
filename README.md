@@ -2,7 +2,7 @@
 
 A news website based around the idea that if you can make a website load quickly on a 2G mobile phone, it will feel instantaneous on most other platforms.
 
-So using content from (The Guardian newspaper's open platform)[http://open-platform.theguardian.com/] the bare minimal (without looking too ugly) HTML, CSS and JS. You can get the latest headlines to your phone, tablet or desktop, without using too much data or waiting forever.
+So using content from [The Guardian newspaper's open platform](http://open-platform.theguardian.com/) the bare minimal (without looking too ugly) HTML, CSS and JS. You can get the latest headlines to your phone, tablet or desktop, without using too much data or waiting forever.
 
 So on the front end along with minimal code where possible, we are using Cloudfront as a CDN and using the device detection headers, to serve two different templates, one with images for desktop and one without for other devices. 
 
