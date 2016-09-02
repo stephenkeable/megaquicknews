@@ -12,6 +12,8 @@ router.get('/', function (req, res, next) {
     //set cache control headers
 	res.set("Cache-Control","max-age=86400");
     res.set("Vary", "Accept-Encoding");
+    
+    res.locals.custom_css = "section h1{background:#333;} h2{padding:5px 10px;} h2 a{color:#fff;text-decoration:none;} #news{background:#c30;}#sport{background:#360;} #ents{background:#036;}";
 
     res.render('home' , { 
   		title: res.locals.page_title,
@@ -31,6 +33,8 @@ router.get('/about', function (req, res, next) {
     //set cache control headers
 	res.set("Cache-Control","max-age=86400");
     res.set("Vary", "Accept-Encoding");
+    
+    res.locals.custom_css = "section h1{background:#333;} p, h2{padding:5px 10px;} h2{font-weight:bold;}";
 
     res.render('about' , { 
   		title: res.locals.page_title,
