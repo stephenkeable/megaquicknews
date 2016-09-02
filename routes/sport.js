@@ -3,6 +3,10 @@ var request = require('request');
 
 var express = require('express');
 var router = express.Router();
+    
+var desktop_custom_css = 'section h1{background:#360;}@media (min-width:420px) {section ul{padding:0 5px;display:flex;flex-flow:row wrap;justify-content:center;}section ul:after{content:"";display:table;clear:both;}section ul li{width:300px;margin:10px 5px;float:left;height:450px;overflow:hidden;display:inline-block;padding:10px;}}section ul li img{max-width:100%;height:auto;display:block;margin-bottom:5px;}';
+
+var custom_css = 'section h1{background:#360;}';
 
 // GET index
 
@@ -33,8 +37,10 @@ router.get('/', function (req, res, next) {
 
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
         var view_name = "sport-desktop";
+        res.locals.custom_css = desktop_custom_css;
     } else {
         var view_name = "sport";
+        res.locals.custom_css = custom_css;
     }
 
     res.render(view_name , { 
@@ -73,8 +79,10 @@ router.get('/football', function (req, res, next) {
 
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
         var view_name = "sport-desktop";
+        res.locals.custom_css = desktop_custom_css;
     } else {
         var view_name = "sport";
+        res.locals.custom_css = custom_css;
     }
 
     res.render(view_name , { 
@@ -113,8 +121,10 @@ router.get('/cricket', function (req, res, next) {
 
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
         var view_name = "sport-desktop";
+        res.locals.custom_css = desktop_custom_css;
     } else {
         var view_name = "sport";
+        res.locals.custom_css = custom_css;
     }
 
     res.render(view_name , { 
@@ -153,8 +163,10 @@ router.get('/f1', function (req, res, next) {
 
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
         var view_name = "sport-desktop";
+        res.locals.custom_css = desktop_custom_css;
     } else {
         var view_name = "sport";
+        res.locals.custom_css = custom_css;
     }
 
     res.render(view_name , { 
@@ -193,8 +205,10 @@ router.get('/tennis', function (req, res, next) {
 
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
         var view_name = "sport-desktop";
+        res.locals.custom_css = desktop_custom_css;
     } else {
         var view_name = "sport";
+        res.locals.custom_css = custom_css;
     }
 
     res.render(view_name , { 
@@ -233,8 +247,10 @@ router.get('/golf', function (req, res, next) {
 
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
         var view_name = "sport-desktop";
+        res.locals.custom_css = desktop_custom_css;
     } else {
         var view_name = "sport";
+        res.locals.custom_css = custom_css;
     }
 
     res.render(view_name , { 
@@ -273,8 +289,10 @@ router.get('/cycling', function (req, res, next) {
 
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
         var view_name = "sport-desktop";
+        res.locals.custom_css = desktop_custom_css;
     } else {
         var view_name = "sport";
+        res.locals.custom_css = custom_css;
     }
 
     res.render(view_name , { 
@@ -313,8 +331,10 @@ router.get('/rugby-union', function (req, res, next) {
 
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
         var view_name = "sport-desktop";
+        res.locals.custom_css = desktop_custom_css;
     } else {
         var view_name = "sport";
+        res.locals.custom_css = custom_css;
     }
 
     res.render(view_name , { 
@@ -353,8 +373,10 @@ router.get('/rugby-league', function (req, res, next) {
 
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
         var view_name = "sport-desktop";
+        res.locals.custom_css = desktop_custom_css;
     } else {
         var view_name = "sport";
+        res.locals.custom_css = custom_css;
     }
 
     res.render(view_name , { 
