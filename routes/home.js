@@ -43,6 +43,9 @@ router.get('/about', function (req, res, next) {
     
 });
 
+// TO DO, currently using just cloudfront device detection headers
+// Include express-device and if no cloufront header fallback to this to sniff agent for desktop
+
 //router.get('/test', function (req, res, next) {
 //    
 //    res.locals.page_title = "Cloudfront test";
