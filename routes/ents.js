@@ -320,7 +320,7 @@ router.get('/games', function (req, res, next) {
 
 router.get('/art', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/artanddesign?api-key="+req.req.app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/artanddesign?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
