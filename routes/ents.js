@@ -12,7 +12,7 @@ var custom_css = 'section h1{background:#036;}';
 
 router.get('/', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/culture?api-key="+app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/culture?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -54,7 +54,7 @@ router.get('/', function (req, res, next) {
 
 router.get('/tv', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/tv-and-radio?api-key="+app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/tv-and-radio?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -96,7 +96,7 @@ router.get('/tv', function (req, res, next) {
 
 router.get('/film', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/film?api-key="+app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/film?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -138,7 +138,7 @@ router.get('/film', function (req, res, next) {
 
 router.get('/music', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/music?api-key="+app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/music?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -181,7 +181,7 @@ router.get('/music', function (req, res, next) {
 
 router.get('/books', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/books?api-key="+app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/books?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -224,7 +224,7 @@ router.get('/books', function (req, res, next) {
 
 router.get('/stage', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/stage?api-key="+app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/stage?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -267,7 +267,7 @@ router.get('/stage', function (req, res, next) {
 
 router.get('/games', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/search?api-key="+app.get('guardian_api_key')+"&order-by=newest&tag=technology/games&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/search?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=technology/games&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -310,7 +310,7 @@ router.get('/games', function (req, res, next) {
 
 router.get('/art', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/artanddesign?api-key="+app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/artanddesign?api-key="+req.req.app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
