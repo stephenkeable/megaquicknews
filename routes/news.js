@@ -12,7 +12,7 @@ var custom_css = 'section h1{background:#c30;}';
 
 router.get('/', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/news?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=-theguardian/series/correctionsandclarifications,-theguardian/series/inside-guardian-weekl,-theobserver/series/for-the-record&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/news?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=-theguardian/series/correctionsandclarifications,-theguardian/series/inside-guardian-weekl,-theobserver/series/for-the-record&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -55,7 +55,7 @@ router.get('/', function (req, res, next) {
 
 router.get('/uk', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/uk-news?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/uk-news?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -98,7 +98,7 @@ router.get('/uk', function (req, res, next) {
 
 router.get('/world', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/world?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/world?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -141,7 +141,7 @@ router.get('/world', function (req, res, next) {
 
 router.get('/tech', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/technology?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/technology?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -184,7 +184,7 @@ router.get('/tech', function (req, res, next) {
 
 router.get('/science', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/science?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/science?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -227,7 +227,7 @@ router.get('/science', function (req, res, next) {
 
 router.get('/business', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/business?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/business?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -270,7 +270,7 @@ router.get('/business', function (req, res, next) {
 
 router.get('/money', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/money?api-key="+process.env.GUARDIAN_API_KEY+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
+    var request_url = "https://content.guardianapis.com/money?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
