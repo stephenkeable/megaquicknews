@@ -38,6 +38,7 @@ router.get('/', function (req, res, next) {
     res.set("Vary", "Accept-Encoding");
         
     var mydevice = device(req.headers['user-agent']);
+    console.log(mydevice.is('desktop'));
 
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "ents-desktop";
