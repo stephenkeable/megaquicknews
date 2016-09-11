@@ -38,7 +38,6 @@ router.get('/', function (req, res, next) {
     res.set("Vary", "Accept-Encoding");
         
     var mydevice = device(req.headers['user-agent']);
-    console.log(mydevice.is('desktop'));
 
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "ents-desktop";
@@ -82,7 +81,8 @@ router.get('/tv', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "ents-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
@@ -124,7 +124,8 @@ router.get('/film', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "ents-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
@@ -166,7 +167,8 @@ router.get('/music', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "ents-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
@@ -209,7 +211,8 @@ router.get('/books', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "ents-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
@@ -252,7 +255,8 @@ router.get('/stage', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "ents-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
@@ -295,7 +299,8 @@ router.get('/games', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "ents-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
@@ -338,7 +343,8 @@ router.get('/art', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "ents-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {

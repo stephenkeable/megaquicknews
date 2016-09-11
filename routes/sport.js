@@ -3,6 +3,8 @@ var request = require('request');
 
 var express = require('express');
 var router = express.Router();
+
+var device = require('device');
     
 var desktop_custom_css = 'section h1{background:#360;}@media (min-width:420px) {section ul{padding:0 5px;display:flex;flex-flow:row wrap;justify-content:center;}section ul:after{content:"";display:table;clear:both;}section ul li{width:300px;margin:10px 5px;float:left;height:450px;overflow:hidden;display:inline-block;padding:10px;}}section ul li img{max-width:100%;height:auto;display:block;margin-bottom:5px;}';
 
@@ -35,7 +37,8 @@ router.get('/', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "sport-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
@@ -77,7 +80,8 @@ router.get('/football', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "sport-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
@@ -119,7 +123,8 @@ router.get('/cricket', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "sport-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
@@ -161,7 +166,8 @@ router.get('/f1', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "sport-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
@@ -203,7 +209,8 @@ router.get('/tennis', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "sport-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
@@ -245,7 +252,8 @@ router.get('/golf', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "sport-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
@@ -287,7 +295,8 @@ router.get('/cycling', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "sport-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
@@ -329,7 +338,8 @@ router.get('/rugby-union', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "sport-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
@@ -371,7 +381,8 @@ router.get('/rugby-league', function (req, res, next) {
 	res.set("Cache-Control","max-age=1800");
     res.set("Vary", "Accept-Encoding");
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true") {
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "sport-desktop";
         res.locals.custom_css = desktop_custom_css;
     } else {
