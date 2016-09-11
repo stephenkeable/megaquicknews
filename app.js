@@ -21,6 +21,8 @@ hbs.registerHelper('striptags', function(input_text) {
 
 app.set('port', (process.env.PORT || 80));
 
+app.set('guardian_api_key', (process.env.GUARDIAN_API_KEY || process.env.ENV_GUARDIAN_API_KEY));
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/less-css', expressLess(__dirname + '/public/styles/', { compress: true }));
 
