@@ -3,7 +3,7 @@ var router = express.Router();
 
 var device = require('device');
     
-var desktop_custom_css = '@media(min-width:420px){section {padding:0 5px;display:flex;flex-flow:row wrap;justify-content:center;}section:after{content:"";display:table;clear:both;}section div{width:300px;margin:10px 5px;float:left;height:450px;overflow:hidden;display:inline-block;padding:10px;}}';
+var desktop_custom_css = '@media(min-width:420px){section {padding:0 5px;display:flex;flex-flow:row wrap;justify-content:center;}section:after{content:"";display:table;clear:both;}section div{width:33%;margin:10px 5px;float:left;height:450px;overflow:hidden;display:inline-block;padding:10px;}}h2{padding:5px 10px;} h2 a{color:#fff;text-decoration:none;} #news{background:#c30;}#sport{background:#360;} #ents{background:#036;}'';
 
 var custom_css = 'section h1{background:#333;} h2{padding:5px 10px;} h2 a{color:#fff;text-decoration:none;} #news{background:#c30;}#sport{background:#360;} #ents{background:#036;}';
 
