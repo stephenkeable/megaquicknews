@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+
+var device = require('device');
     
 var desktop_custom_css = '@media(min-width:420px){section {padding:0 5px;display:flex;flex-flow:row wrap;justify-content:center;}section:after{content:"";display:table;clear:both;}section div{width:300px;margin:10px 5px;float:left;height:450px;overflow:hidden;display:inline-block;padding:10px;}}';
 
