@@ -1,5 +1,9 @@
 var express = require('express');
 var router = express.Router();
+    
+var desktop_custom_css = '@media(min-width:420px){section {padding:0 5px;display:flex;flex-flow:row wrap;justify-content:center;}section:after{content:"";display:table;clear:both;}section div{width:300px;margin:10px 5px;float:left;height:450px;overflow:hidden;display:inline-block;padding:10px;}}';
+
+var custom_css = 'section h1{background:#333;} h2{padding:5px 10px;} h2 a{color:#fff;text-decoration:none;} #news{background:#c30;}#sport{background:#360;} #ents{background:#036;}';
 
 router.get('/', function (req, res, next) {
     
@@ -12,10 +16,18 @@ router.get('/', function (req, res, next) {
     //set cache control headers
 	res.set("Cache-Control","max-age=86400");
     res.set("Vary", "Accept-Encoding");
-    
-    res.locals.custom_css = "section h1{background:#333;} h2{padding:5px 10px;} h2 a{color:#fff;text-decoration:none;} #news{background:#c30;}#sport{background:#360;} #ents{background:#036;}";
 
-    res.render('home' , { 
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
+        var view_name = "home-desktop";
+        res.locals.custom_css = desktop_custom_css;
+        
+    } else {
+        var view_name = "home";
+        res.locals.custom_css = custom_css;
+    }
+
+    res.render(view_name , { 
   		title: res.locals.page_title,
   		website: req.website
   	});
