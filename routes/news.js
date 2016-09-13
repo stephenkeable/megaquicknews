@@ -142,6 +142,50 @@ router.get('/world', function (req, res, next) {
     
 });
 
+// GET politics
+
+router.get('/politics', function (req, res, next) {
+            
+    var request_url = "https://content.guardianapis.com/politics?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=tone/news&show-fields=trailText,thumbnail&page-size=12";
+        
+    request(request_url, function (error, response, body) {
+
+        if (!error && response.statusCode == 200) {
+            
+            guardian_object = JSON.parse(body);
+            
+            res.locals.news_items = guardian_object.response.results;
+            
+            res.locals.title = "Politics News";
+
+        }
+
+        next();
+        
+    });
+}, function (req, res) {
+    
+    //set cache control headers
+	res.set("Cache-Control","max-age=1800");
+    res.set("Vary", "Accept-Encoding");
+
+    var mydevice = device(req.headers['user-agent']);      
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
+        var view_name = "news-desktop";
+        res.locals.custom_css = desktop_custom_css;
+        
+    } else {
+        var view_name = "news";
+        res.locals.custom_css = custom_css;
+    }
+
+    res.render(view_name , { 
+  		hostname: req.hostname,
+  		website: req.website
+  	});
+    
+});
+
 // GET tech
 
 router.get('/tech', function (req, res, next) {
