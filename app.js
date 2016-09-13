@@ -71,6 +71,9 @@ app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
+}, function(req, res){
+	res.locals.title = "Not Found";
+	res.render('404');
 });
 
 app.listen(app.get('port'), function() {
