@@ -68,10 +68,12 @@ app.use(favicon(__dirname + '/public/favicon.ico'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-	res.locals.title = "Not Found";
-	res.render('404');
+    var err = new Error('Not Found');
+    err.status = 404;
+  
+    res.locals.custom_css = "section h1{background:#333;} p, h2{padding:5px 10px;} h2{font-weight:bold;}";
+    res.locals.title = "Not Found";
+    res.render('404');
   //next(err);
 });
 
