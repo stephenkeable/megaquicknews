@@ -70,10 +70,9 @@ app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
-  next(err);
-}, function(req, res){
 	res.locals.title = "Not Found";
 	res.render('404');
+  next(err);
 });
 
 app.listen(app.get('port'), function() {
