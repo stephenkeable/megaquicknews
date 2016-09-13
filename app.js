@@ -72,7 +72,7 @@ app.use(function(req, res, next) {
   err.status = 404;
 	res.locals.title = "Not Found";
 	res.render('404');
-  next(err);
+  //next(err);
 });
 
 app.listen(app.get('port'), function() {
