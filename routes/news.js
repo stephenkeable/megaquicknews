@@ -35,7 +35,7 @@ router.get('/:section?', function (req, res, next) {
         page_title = 'Politics News';
         guardian_tags = 'tone/news';
         
-    } else if (req.params.section == 'technology') {
+    } else if (req.params.section == 'tech') {
         
         guardian_section = 'technology';
         page_title = 'Techology News';
