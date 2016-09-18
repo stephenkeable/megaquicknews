@@ -10,11 +10,70 @@ var desktop_custom_css = 'section h1{background:#036;}@media (min-width:420px) {
 
 var custom_css = 'section h1{background:#036;}';
 
+// Lots of duplicate code with these routes
+// TODO move to a single router.get('/:section')...
+// var guardian_tags = '';
+// if (req.params.section == 'tv') {
+//  var guardian_section = 'tv-and-radio';
+//  var page_title = 'TV News';
+// }
+//  var request_url = "https://content.guardianapis.com/"+guardian_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+guardian_tags+"&show-fields=trailText,thumbnail&page-size=12";
+
 // GET index
 
-router.get('/', function (req, res, next) {
+router.get('/:section', function (req, res, next) {
             
-    var request_url = "https://content.guardianapis.com/culture?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
+//    var request_url = "https://content.guardianapis.com/culture?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=&show-fields=trailText,thumbnail&page-size=12";
+    
+    var guardian_tags = '';
+    var guardian_section = 'culture';
+    var page_title = 'Entertainment News';
+    
+    if (req.params.section == 'tv') {
+        
+        guardian_section = 'tv-and-radio';
+        page_title = 'TV News';
+        guardian_tags = '';
+        
+    } else if (req.params.section == 'film') {
+        
+        guardian_section = 'film';
+        page_title = 'Film News';
+        guardian_tags = '';
+        
+    } else if (req.params.section == 'music') {
+        
+        guardian_section = 'music';
+        page_title = 'Music News';
+        guardian_tags = '';
+        
+    } else if (req.params.section == 'books') {
+        
+        guardian_section = 'books';
+        page_title = 'Books News';
+        guardian_tags = '';
+        
+    } else if (req.params.section == 'stage') {
+        
+        guardian_section = 'stage';
+        page_title = 'Stage News';
+        guardian_tags = '';
+        
+    } else if (req.params.section == 'games') {
+        
+        guardian_section = 'search';
+        page_title = 'Games News';
+        guardian_tags = 'technology/games';
+        
+    } else if (req.params.section == 'art') {
+        
+        guardian_section = 'artanddesign';
+        page_title = 'Art News';
+        guardian_tags = '';
+        
+    } 
+    
+    var request_url = "https://content.guardianapis.com/"+guardian_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+guardian_tags+"&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -24,7 +83,8 @@ router.get('/', function (req, res, next) {
             
             res.locals.news_items = guardian_object.response.results;
             
-            res.locals.title = "Entertainment News";
+//            res.locals.title = "Entertainment News";
+            res.locals.title = page_title;
 
         }
 
@@ -54,6 +114,7 @@ router.get('/', function (req, res, next) {
     
 });
 
+/*
 // GET tv
 
 router.get('/tv', function (req, res, next) {
@@ -359,5 +420,5 @@ router.get('/art', function (req, res, next) {
     
 });
 
-
+*/
 module.exports = router;
