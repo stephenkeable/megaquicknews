@@ -10,7 +10,8 @@ var desktop_custom_css = 'section h1{background:#036;}@media(min-width:420px){se
 
 var custom_css = 'section h1{background:#036;}';
 
-// GET index
+// GET function to grab all
+// TODO possibly should show 404, instead of default to /entertainment
 
 router.get('/:section?', function (req, res, next) {
                 
