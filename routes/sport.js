@@ -10,11 +10,70 @@ var desktop_custom_css = 'section h1{background:#360;}@media (min-width:420px) {
 
 var custom_css = 'section h1{background:#360;}';
 
-// GET index
+// GET function to grab all
+// TODO possibly should show 404, instead of default to /entertainment
 
-router.get('/', function (req, res, next) {
-            
-    var request_url = "https://content.guardianapis.com/sport?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=-tone/minutebyminute&show-fields=trailText,thumbnail&page-size=12";
+router.get('/:section?', function (req, res, next) {
+                
+    var guardian_tags, guardian_section, page_title;
+    
+    if (req.params.section == 'football') {
+        
+        guardian_section = 'football';
+        page_title = 'Football News';
+        guardian_tags = '-tone/minutebyminute';
+        
+    } else if (req.params.section == 'cricket') {
+        
+        guardian_section = 'sport';
+        page_title = 'Cricket News';
+        guardian_tags = '-tone/minutebyminute,sport/cricket';
+        
+    } else if (req.params.section == 'f1') {
+        
+        guardian_section = 'sport';
+        page_title = 'F1 News';
+        guardian_tags = '-tone/minutebyminute,sport/formulaone';
+        
+    } else if (req.params.section == 'tennis') {
+        
+        guardian_section = 'sport';
+        page_title = 'Tennis News';
+        guardian_tags = '-tone/minutebyminute,sport/tennis';
+        
+    } else if (req.params.section == 'golf') {
+        
+        guardian_section = 'sport';
+        page_title = 'Golf News';
+        guardian_tags = '-tone/minutebyminute,sport/golf';
+        
+    } else if (req.params.section == 'cycling') {
+        
+        guardian_section = 'sport';
+        page_title = 'Cycling News';
+        guardian_tags = '-tone/minutebyminute,sport/cycling';
+        
+    } else if (req.params.section == 'rugby-union') {
+        
+        guardian_section = 'sport';
+        page_title = 'Rugcy Union News';
+        guardian_tags = '-tone/minutebyminute,sport/rugby-union';
+        
+    } else if (req.params.section == 'rugyby-league') {
+        
+        guardian_section = 'sport';
+        page_title = 'Rugby League News';
+        guardian_tags = '-tone/minutebyminute,sport/rugbyleague';
+        
+    }  else {
+        
+        guardian_section = 'sport';
+        page_title = 'Sport';
+        guardian_tags = '-tone/minutebyminute';
+        
+    } 
+    
+    var request_url = "https://content.guardianapis.com/"+guardian_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+guardian_tags+"&show-fields=trailText,thumbnail&page-size=12";
         
     request(request_url, function (error, response, body) {
 
@@ -24,13 +83,14 @@ router.get('/', function (req, res, next) {
             
             res.locals.news_items = guardian_object.response.results;
             
-            res.locals.title = "Sport News";
+            res.locals.title = page_title;
 
         }
 
         next();
         
     });
+    
 }, function (req, res) {
     
     //set cache control headers
@@ -52,350 +112,5 @@ router.get('/', function (req, res, next) {
   	});
     
 });
-
-// GET football
-
-router.get('/football', function (req, res, next) {
-            
-    var request_url = "https://content.guardianapis.com/football?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=-tone/minutebyminute&show-fields=trailText,thumbnail&page-size=12";
-        
-    request(request_url, function (error, response, body) {
-
-        if (!error && response.statusCode == 200) {
-            
-            guardian_object = JSON.parse(body);
-            
-            res.locals.news_items = guardian_object.response.results;
-            
-            res.locals.title = "Football News";
-
-        }
-
-        next();
-        
-    });
-}, function (req, res) {
-    
-    //set cache control headers
-	res.set("Cache-Control","max-age=1800");
-    res.set("Vary", "Accept-Encoding");
-
-    var mydevice = device(req.headers['user-agent']);      
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
-        var view_name = "sport-desktop";
-        res.locals.custom_css = desktop_custom_css;
-    } else {
-        var view_name = "sport";
-        res.locals.custom_css = custom_css;
-    }
-
-    res.render(view_name , { 
-  		hostname: req.hostname,
-  		website: req.website
-  	});
-    
-});
-
-// GET cricket
-
-router.get('/cricket', function (req, res, next) {
-            
-    var request_url = "https://content.guardianapis.com/sport?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=sport/cricket&show-fields=trailText,thumbnail&page-size=12";
-        
-    request(request_url, function (error, response, body) {
-
-        if (!error && response.statusCode == 200) {
-            
-            guardian_object = JSON.parse(body);
-            
-            res.locals.news_items = guardian_object.response.results;
-            
-            res.locals.title = "Cricket News";
-
-        }
-
-        next();
-        
-    });
-}, function (req, res) {
-    
-    //set cache control headers
-	res.set("Cache-Control","max-age=1800");
-    res.set("Vary", "Accept-Encoding");
-
-    var mydevice = device(req.headers['user-agent']);      
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
-        var view_name = "sport-desktop";
-        res.locals.custom_css = desktop_custom_css;
-    } else {
-        var view_name = "sport";
-        res.locals.custom_css = custom_css;
-    }
-
-    res.render(view_name , { 
-  		hostname: req.hostname,
-  		website: req.website
-  	});
-    
-});
-
-// GET f1
-
-router.get('/f1', function (req, res, next) {
-            
-    var request_url = "https://content.guardianapis.com/sport?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=sport/formulaone&show-fields=trailText,thumbnail&page-size=12";
-        
-    request(request_url, function (error, response, body) {
-
-        if (!error && response.statusCode == 200) {
-            
-            guardian_object = JSON.parse(body);
-            
-            res.locals.news_items = guardian_object.response.results;
-            
-            res.locals.title = "Formula One News";
-
-        }
-
-        next();
-        
-    });
-}, function (req, res) {
-    
-    //set cache control headers
-	res.set("Cache-Control","max-age=1800");
-    res.set("Vary", "Accept-Encoding");
-
-    var mydevice = device(req.headers['user-agent']);      
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
-        var view_name = "sport-desktop";
-        res.locals.custom_css = desktop_custom_css;
-    } else {
-        var view_name = "sport";
-        res.locals.custom_css = custom_css;
-    }
-
-    res.render(view_name , { 
-  		hostname: req.hostname,
-  		website: req.website
-  	});
-    
-});
-
-// GET tennis
-
-router.get('/tennis', function (req, res, next) {
-            
-    var request_url = "https://content.guardianapis.com/sport?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=sport/tennis&show-fields=trailText,thumbnail&page-size=12";
-        
-    request(request_url, function (error, response, body) {
-
-        if (!error && response.statusCode == 200) {
-            
-            guardian_object = JSON.parse(body);
-            
-            res.locals.news_items = guardian_object.response.results;
-            
-            res.locals.title = "Tennis News";
-
-        }
-
-        next();
-        
-    });
-}, function (req, res) {
-    
-    //set cache control headers
-	res.set("Cache-Control","max-age=1800");
-    res.set("Vary", "Accept-Encoding");
-
-    var mydevice = device(req.headers['user-agent']);      
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
-        var view_name = "sport-desktop";
-        res.locals.custom_css = desktop_custom_css;
-    } else {
-        var view_name = "sport";
-        res.locals.custom_css = custom_css;
-    }
-
-    res.render(view_name , { 
-  		hostname: req.hostname,
-  		website: req.website
-  	});
-    
-});
-
-// GET golf
-
-router.get('/golf', function (req, res, next) {
-            
-    var request_url = "https://content.guardianapis.com/sport?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=sport/golf&show-fields=trailText,thumbnail&page-size=12";
-        
-    request(request_url, function (error, response, body) {
-
-        if (!error && response.statusCode == 200) {
-            
-            guardian_object = JSON.parse(body);
-            
-            res.locals.news_items = guardian_object.response.results;
-            
-            res.locals.title = "Golf News";
-
-        }
-
-        next();
-        
-    });
-}, function (req, res) {
-    
-    //set cache control headers
-	res.set("Cache-Control","max-age=1800");
-    res.set("Vary", "Accept-Encoding");
-
-    var mydevice = device(req.headers['user-agent']);      
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
-        var view_name = "sport-desktop";
-        res.locals.custom_css = desktop_custom_css;
-    } else {
-        var view_name = "sport";
-        res.locals.custom_css = custom_css;
-    }
-
-    res.render(view_name , { 
-  		hostname: req.hostname,
-  		website: req.website
-  	});
-    
-});
-
-// GET cycling
-
-router.get('/cycling', function (req, res, next) {
-            
-    var request_url = "https://content.guardianapis.com/sport?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=sport/cycling&show-fields=trailText,thumbnail&page-size=12";
-        
-    request(request_url, function (error, response, body) {
-
-        if (!error && response.statusCode == 200) {
-            
-            guardian_object = JSON.parse(body);
-            
-            res.locals.news_items = guardian_object.response.results;
-            
-            res.locals.title = "Cycling News";
-
-        }
-
-        next();
-        
-    });
-}, function (req, res) {
-    
-    //set cache control headers
-	res.set("Cache-Control","max-age=1800");
-    res.set("Vary", "Accept-Encoding");
-
-    var mydevice = device(req.headers['user-agent']);      
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
-        var view_name = "sport-desktop";
-        res.locals.custom_css = desktop_custom_css;
-    } else {
-        var view_name = "sport";
-        res.locals.custom_css = custom_css;
-    }
-
-    res.render(view_name , { 
-  		hostname: req.hostname,
-  		website: req.website
-  	});
-    
-});
-
-// GET rugby union
-
-router.get('/rugby-union', function (req, res, next) {
-            
-    var request_url = "https://content.guardianapis.com/sport?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=sport/rugby-union&show-fields=trailText,thumbnail&page-size=12";
-        
-    request(request_url, function (error, response, body) {
-
-        if (!error && response.statusCode == 200) {
-            
-            guardian_object = JSON.parse(body);
-            
-            res.locals.news_items = guardian_object.response.results;
-            
-            res.locals.title = "Rugby Union News";
-
-        }
-
-        next();
-        
-    });
-}, function (req, res) {
-    
-    //set cache control headers
-	res.set("Cache-Control","max-age=1800");
-    res.set("Vary", "Accept-Encoding");
-
-    var mydevice = device(req.headers['user-agent']);      
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
-        var view_name = "sport-desktop";
-        res.locals.custom_css = desktop_custom_css;
-    } else {
-        var view_name = "sport";
-        res.locals.custom_css = custom_css;
-    }
-
-    res.render(view_name , { 
-  		hostname: req.hostname,
-  		website: req.website
-  	});
-    
-});
-
-// GET rugby league
-
-router.get('/rugby-league', function (req, res, next) {
-            
-    var request_url = "https://content.guardianapis.com/sport?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag=sport/rugbyleague&show-fields=trailText,thumbnail&page-size=12";
-        
-    request(request_url, function (error, response, body) {
-
-        if (!error && response.statusCode == 200) {
-            
-            guardian_object = JSON.parse(body);
-            
-            res.locals.news_items = guardian_object.response.results;
-            
-            res.locals.title = "Rugby League News";
-
-        }
-
-        next();
-        
-    });
-}, function (req, res) {
-    
-    //set cache control headers
-	res.set("Cache-Control","max-age=1800");
-    res.set("Vary", "Accept-Encoding");
-
-    var mydevice = device(req.headers['user-agent']);      
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
-        var view_name = "sport-desktop";
-        res.locals.custom_css = desktop_custom_css;
-    } else {
-        var view_name = "sport";
-        res.locals.custom_css = custom_css;
-    }
-
-    res.render(view_name , { 
-  		hostname: req.hostname,
-  		website: req.website
-  	});
-    
-});
-
 
 module.exports = router;
