@@ -21,31 +21,31 @@ router.get('/:section?', function (req, res, next) {
         
         guardian_section = 'tv-and-radio';
         page_title = 'TV News';
-        guardian_tags = '';
+        guardian_tags = 'type/article';
         
     } else if (req.params.section == 'film') {
         
         guardian_section = 'film';
         page_title = 'Film News';
-        guardian_tags = '';
+        guardian_tags = 'type/article';
         
     } else if (req.params.section == 'music') {
         
         guardian_section = 'music';
         page_title = 'Music News';
-        guardian_tags = '';
+        guardian_tags = 'type/article';
         
     } else if (req.params.section == 'books') {
         
         guardian_section = 'books';
         page_title = 'Books News';
-        guardian_tags = '';
+        guardian_tags = 'type/article';
         
     } else if (req.params.section == 'stage') {
         
         guardian_section = 'stage';
         page_title = 'Stage News';
-        guardian_tags = '';
+        guardian_tags = 'type/article';
         
     } else if (req.params.section == 'games') {
         
@@ -57,11 +57,11 @@ router.get('/:section?', function (req, res, next) {
         
         guardian_section = 'artanddesign';
         page_title = 'Art News';
-        guardian_tags = '';
+        guardian_tags = 'type/article';
         
     }  else {
         
-        guardian_tags = '';
+        guardian_tags = 'type/article';
         guardian_section = 'culture';
         page_title = 'Entertainment News';
         
