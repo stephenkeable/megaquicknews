@@ -2,6 +2,15 @@ var express = require('express');
 var router = express.Router();
 
 var device = require('device');
+
+var main_css = "";
+
+sass.render({
+  file: __dirname + '/public/css/main.scss',
+  outputStyle: 'compressed'
+}, function(err, result){
+    main_css = result.css;
+});
     
 var desktop_custom_css = '@media(min-width:420px){section {display:flex;flex-flow:row wrap;justify-content:center;}section div{flex-grow:2;float:left;display:inline-block;}}h2{padding:5px 10px;}h2 a{color:#fff;text-decoration:none;}#news{background:#c30;}#sport{background:#360;} #ents{background:#036;}';
 
@@ -31,7 +40,8 @@ router.get('/', function (req, res, next) {
 
     res.render(view_name , { 
   		title: res.locals.page_title,
-  		website: req.website
+  		website: req.website,
+        main_css: main_css
   	});
     
 });
@@ -52,7 +62,8 @@ router.get('/about', function (req, res, next) {
 
     res.render('about' , { 
   		title: res.locals.page_title,
-  		website: req.website
+  		website: req.website,
+        main_css: main_css
   	});
     
 });

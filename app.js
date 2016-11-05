@@ -39,13 +39,6 @@ app.use(minifyHTML({
         minifyJS:                  true
     }
 }));
-
-sass.render({
-  file: 'public/css/main.scss',
-  outputStyle: 'compressed'
-}, function(err, result){
-    res.locals.main_css = result.css;
-});
     
 
 // sections
