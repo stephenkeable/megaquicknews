@@ -8,6 +8,7 @@ var device = require('device');
 var sass = require('node-sass');
 
 var main_css = "";
+var ents_custom_css = "";
 
 sass.render({
   file: '/app/public/css/main.scss',
@@ -15,10 +16,6 @@ sass.render({
 }, function(err, result){
     main_css = result.css;
 });
-    
-var desktop_custom_css = 'section h1{background:#036;}@media(min-width:420px){section ul{padding:0 5px;display:flex;flex-flow:row wrap;justify-content:center;}section ul:after{content:"";display:table;clear:both;}section ul li{width:300px;margin:10px 5px;float:left;height:450px;overflow:hidden;display:inline-block;padding:10px;}}section ul li img{max-width:100%;height:auto;display:block;margin-bottom:5px;}';
-
-var custom_css = 'section h1{background:#036;}';
 
 // GET function to grab all
 // TODO possibly should show 404, instead of default to /entertainment
@@ -105,17 +102,26 @@ router.get('/:section?', function (req, res, next) {
 
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "ents-desktop";
-        res.locals.custom_css = desktop_custom_css;
+        device_string = "_desktop";
     } else {
         var view_name = "ents";
-        res.locals.custom_css = custom_css;
+        device_string = "";
     }
 
-    res.render(view_name , { 
-  		hostname: req.hostname,
-  		website: req.website,
-        main_css: main_css
-  	});
+    sass.render({
+      file: '/app/public/css/ents'+device_string+'.scss',
+      outputStyle: 'compressed'
+    }, function(err, result){
+        
+        ents_custom_css = result.css;
+
+        res.render(view_name , { 
+            title: res.locals.page_title,
+            website: req.website,
+            main_css: main_css,
+            custom_css: ents_custom_css
+        });
+    });
     
 });
 

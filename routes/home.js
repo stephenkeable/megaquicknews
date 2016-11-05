@@ -40,6 +40,7 @@ router.get('/', function (req, res, next) {
       file: '/app/public/css/home'+device_string+'.scss',
       outputStyle: 'compressed'
     }, function(err, result){
+        
         home_custom_css = result.css;
 
         res.render(view_name , { 
@@ -63,14 +64,21 @@ router.get('/about', function (req, res, next) {
     //set cache control headers
 	res.set("Cache-Control","max-age=86400");
     res.set("Vary", "Accept-Encoding");
-    
-    res.locals.custom_css = "section h1{background:#333;} p, h2{padding:5px 10px;} h2{font-weight:bold;}";
 
-    res.render('about' , { 
-  		title: res.locals.page_title,
-  		website: req.website,
-        main_css: main_css
-  	});
+    sass.render({
+      file: '/app/public/css/generic.scss',
+      outputStyle: 'compressed'
+    }, function(err, result){
+        
+        home_custom_css = result.css;
+
+        res.render('about' , { 
+            title: res.locals.page_title,
+            website: req.website,
+            main_css: main_css,
+            custom_css: home_custom_css
+        });
+    });
     
 });
 
