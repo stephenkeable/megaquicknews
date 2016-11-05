@@ -1,0 +1,28 @@
+@media(min-width:420px) {
+	section {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+	}
+	section div {
+		flex-grow: 2;
+		float: left;
+		display: inline-block;
+	}
+}
+h2 {
+	padding: 5px 10px;
+}
+h2 a {
+	color: #fff;
+	text-decoration: none;
+}
+#news {
+	background: #c30;
+}
+#sport {
+	background: #360;
+}
+#ents {
+	background: #036;
+}

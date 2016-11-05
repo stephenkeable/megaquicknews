@@ -10,10 +10,6 @@ sass.render({
   file: '/app/public/css/main.scss',
   outputStyle: 'compressed'
 }, function(err, result){
-    if (err) {
-        console.log(err);
-    }
-        console.log(result);
     main_css = result.css;
 });
     
@@ -36,12 +32,19 @@ router.get('/', function (req, res, next) {
     var mydevice = device(req.headers['user-agent']);      
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
         var view_name = "home-desktop";
-        res.locals.custom_css = desktop_custom_css;
+        device_string = "_desktop";
         
     } else {
         var view_name = "home";
-        res.locals.custom_css = custom_css;
+        device_string = "";
     }
+
+    sass.render({
+      file: '/app/public/css/home'+device_string+'.scss',
+      outputStyle: 'compressed'
+    }, function(err, result){
+        res.locals.custom_css = result.css;
+    });
 
     res.render(view_name , { 
   		title: res.locals.page_title,
