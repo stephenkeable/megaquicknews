@@ -121,7 +121,6 @@ router.get('/:section?', function (req, res, next) {
         sport_custom_css = result.css;
 
         res.render(view_name , { 
-            title: res.locals.page_title,
             website: req.website,
             main_css: main_css,
             custom_css: sport_custom_css
