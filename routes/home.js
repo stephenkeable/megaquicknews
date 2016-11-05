@@ -5,6 +5,7 @@ var device = require('device');
 var sass = require('node-sass');
 
 var main_css = "";
+var home_custom_css = "";
 
 sass.render({
   file: '/app/public/css/main.scss',
