@@ -5,6 +5,16 @@ var express = require('express');
 var router = express.Router();
 
 var device = require('device');
+var sass = require('node-sass');
+
+var main_css = "";
+
+sass.render({
+  file: '/app/public/css/main.scss',
+  outputStyle: 'compressed'
+}, function(err, result){
+    main_css = result.css;
+});
     
 var desktop_custom_css = 'section h1{background:#036;}@media(min-width:420px){section ul{padding:0 5px;display:flex;flex-flow:row wrap;justify-content:center;}section ul:after{content:"";display:table;clear:both;}section ul li{width:300px;margin:10px 5px;float:left;height:450px;overflow:hidden;display:inline-block;padding:10px;}}section ul li img{max-width:100%;height:auto;display:block;margin-bottom:5px;}';
 
@@ -103,7 +113,8 @@ router.get('/:section?', function (req, res, next) {
 
     res.render(view_name , { 
   		hostname: req.hostname,
-  		website: req.website
+  		website: req.website,
+        main_css: main_css
   	});
     
 });
