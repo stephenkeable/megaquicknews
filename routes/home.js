@@ -12,10 +12,6 @@ sass.render({
 }, function(err, result){
     main_css = result.css;
 });
-    
-var desktop_custom_css = '@media(min-width:420px){section {display:flex;flex-flow:row wrap;justify-content:center;}section div{flex-grow:2;float:left;display:inline-block;}}h2{padding:5px 10px;}h2 a{color:#fff;text-decoration:none;}#news{background:#c30;}#sport{background:#360;} #ents{background:#036;}';
-
-var custom_css = 'section h1{background:#333;} h2{padding:5px 10px;} h2 a{color:#fff;text-decoration:none;} #news{background:#c30;}#sport{background:#360;} #ents{background:#036;}';
 
 router.get('/', function (req, res, next) {
     
@@ -43,13 +39,14 @@ router.get('/', function (req, res, next) {
       file: '/app/public/css/home'+device_string+'.scss',
       outputStyle: 'compressed'
     }, function(err, result){
-        res.locals.custom_css = result.css;
+        home_custom_css = result.css;
     });
 
     res.render(view_name , { 
   		title: res.locals.page_title,
   		website: req.website,
-        main_css: main_css
+        main_css: main_css,
+        custom_css: home_custom_css
   	});
     
 });
