@@ -2,11 +2,11 @@ var compression = require('compression');
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
-var expressLess = require('express-less');
 var http = require('http');
 var minifyHTML = require('express-minify-html');
 var striptags = require('striptags');
 var favicon = require('serve-favicon');
+var sass = require('node-sass');
 
 var app = express();
 
@@ -27,7 +27,6 @@ app.set('port', (process.env.PORT || 80));
 app.set('guardian_api_key', (process.env.GUARDIAN_API_KEY || process.env.ENV_GUARDIAN_API_KEY));
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/less-css', expressLess(__dirname + '/public/styles/', { compress: true }));
 
 app.use(minifyHTML({
   override:      true,
@@ -40,6 +39,14 @@ app.use(minifyHTML({
         minifyJS:                  true
     }
 }));
+
+sass.render({
+  file: __dirname, 'public/css/main.scss',
+  outputStyle: 'compressed'
+}, function(err, result){
+    res.locals.main_css = result.css;
+});
+    
 
 // sections
 
