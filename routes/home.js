@@ -41,14 +41,14 @@ router.get('/', function (req, res, next) {
       outputStyle: 'compressed'
     }, function(err, result){
         home_custom_css = result.css;
-    });
 
-    res.render(view_name , { 
-  		title: res.locals.page_title,
-  		website: req.website,
-        main_css: main_css,
-        custom_css: home_custom_css
-  	});
+        res.render(view_name , { 
+            title: res.locals.page_title,
+            website: req.website,
+            main_css: main_css,
+            custom_css: home_custom_css
+        });
+    });
     
 });
 
