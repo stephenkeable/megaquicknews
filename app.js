@@ -6,7 +6,6 @@ var http = require('http');
 var minifyHTML = require('express-minify-html');
 var striptags = require('striptags');
 var favicon = require('serve-favicon');
-var sass = require('node-sass');
 
 var app = express();
 
