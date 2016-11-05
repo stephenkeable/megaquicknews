@@ -7,9 +7,13 @@ var sass = require('node-sass');
 var main_css = "";
 
 sass.render({
-  file: __dirname + '/public/css/main.scss',
+  file: '/public/css/main.scss',
   outputStyle: 'compressed'
 }, function(err, result){
+    if (err) {
+        console.log(err);
+    }
+        console.log(result);
     main_css = result.css;
 });
     
