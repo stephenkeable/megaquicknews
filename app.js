@@ -41,7 +41,7 @@ app.use(minifyHTML({
 }));
 
 sass.render({
-  file: __dirname, 'public/css/main.scss',
+  file: 'public/css/main.scss',
   outputStyle: 'compressed'
 }, function(err, result){
     res.locals.main_css = result.css;
