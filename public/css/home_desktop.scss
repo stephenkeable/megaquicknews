@@ -1,3 +1,5 @@
+@import 'theme-variables';
+    
 @media(min-width:420px) {
 	section {
 		display: flex;
@@ -18,11 +20,11 @@ h2 a {
 	text-decoration: none;
 }
 #news {
-	background: #c30;
+	background: $news-colour;
 }
 #sport {
-	background: #360;
+	background: $sport-colour;
 }
 #ents {
-	background: #036;
+	background: $ents-colour;
 }

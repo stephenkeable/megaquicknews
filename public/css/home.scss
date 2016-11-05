@@ -1,3 +1,5 @@
+@import 'theme-variables';
+    
 section h1 {
 	background: #333;
 }
@@ -9,11 +11,11 @@ h2 a {
 	text-decoration: none;
 }
 #news {
-	background: #c30;
+	background: $news-colour;
 }
 #sport {
-	background: #360;
+	background: $sport-colour;
 }
 #ents {
-	background: #036;
+	background: $ents-colour;
 }

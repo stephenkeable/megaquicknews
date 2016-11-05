@@ -1,5 +1,7 @@
+@import 'theme-variables';
+    
 section h1 {
-	background: #036;
+	background: $ents-colour;
 }
 @media(min-width:420px) {
 	section ul {
