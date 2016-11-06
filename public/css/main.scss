@@ -35,6 +35,7 @@ body {
 	font-family: sans-serif;
 	font-size: 12px;
 	line-height: 18px;
+    background: #ddd;
 }
 header {
 	background: #000;
@@ -52,9 +53,12 @@ header h1 a {
 	text-decoration: none;
 }
 footer {
-	margin-top: 10px;
+	margin-top: 20px;
 	border-top: 1px #ccc solid;
-	padding: 5px 10px;
+	padding: 15px;
+    background: #fff;
+    font-size: 12px;
+    line-height: 18px;
 }
 footer img {
 	float: right;
@@ -65,6 +69,7 @@ footer img {
 strong {
 	font-weight: bold;
 }
+
 section ul {
 	padding: 5px 10px;
 }
@@ -75,6 +80,7 @@ section h1 {
 	font-size: 14px;
 	color: #fff;
 	padding: 5px 10px;
+    margin-bottom: 10px; 
 }
 @media(min-width:320px) {
 	body {

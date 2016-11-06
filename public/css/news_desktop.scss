@@ -17,13 +17,18 @@ section h1 {
 	}
 	section ul li {
 		width: 300px;
-		margin: 10px 5px;
+		margin: 15px 10px 5px 10px;
 		float: left;
 		height: 450px;
 		overflow: hidden;
 		display: inline-block;
-		padding: 10px;
+        box-shadow: 0 0 8px rgba(0,0,0,0.25);
+        border-bottom: 5px solid $news-colour;
+        background: #fff;
 	}
+	section ul li p {
+        padding: 10px 15px;
+    }
 }
 section ul li img {
 	max-width: 100%;

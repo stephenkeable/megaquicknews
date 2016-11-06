@@ -64,7 +64,7 @@ router.get('/:section?', function (req, res, next) {
     } else if (req.params.section == 'rugby-union') {
         
         guardian_section = 'sport';
-        page_title = 'Rugcy Union News';
+        page_title = 'Rugby Union News';
         guardian_tags = '-tone/minutebyminute,sport/rugby-union';
         
     } else if (req.params.section == 'rugyby-league') {
