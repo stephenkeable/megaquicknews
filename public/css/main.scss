@@ -1,0 +1,87 @@
+@import 'theme-variables';
+    
+/* Normalize */
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block
+}
+body {
+	line-height: 1
+}
+ol, ul {
+	list-style: none
+}
+blockquote, q {
+	quotes: none
+}
+blockquote:after, blockquote:before, q:after, q:before {
+	content: '';
+	content: none
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+
+/* layout css */
+body {
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+}
+header {
+	background: #000;
+	padding: 5px 10px;
+}
+header h1 {
+	font-size: 14px;
+}
+header small {
+	font-size: 12px;
+	color: #ccc;
+}
+header h1 a {
+	color: #fff;
+	text-decoration: none;
+}
+footer {
+	margin-top: 10px;
+	border-top: 1px #ccc solid;
+	padding: 5px 10px;
+}
+footer img {
+	float: right;
+	max-width: 40%;
+	margin-left: 10px;
+	height: auto;
+}
+strong {
+	font-weight: bold;
+}
+section ul {
+	padding: 5px 10px;
+}
+section ul li {
+	margin: 5px 0;
+}
+section h1 {
+	font-size: 14px;
+	color: #fff;
+	padding: 5px 10px;
+}
+@media(min-width:320px) {
+	body {
+		font-size: 16px;
+		line-height: 24px;
+	}
+	header h1, section h1 {
+		font-size: 18px;
+	}
+}

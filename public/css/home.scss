@@ -1,0 +1,21 @@
+@import 'theme-variables';
+    
+section h1 {
+	background: #333;
+}
+h2 {
+	padding: 5px 10px;
+}
+h2 a {
+	color: #fff;
+	text-decoration: none;
+}
+#news {
+	background: $news-colour;
+}
+#sport {
+	background: $sport-colour;
+}
+#ents {
+	background: $ents-colour;
+}

@@ -11,3 +11,7 @@ Then on the back end we are using Node and Express running on pair of small Hero
 This means we end up with a page of around 7KB with 12 news headlines, summaries and links to the AMP versions of the full stories. For desktop devices we also load a placeholder image of about 1KB, followed by lazy loading the images which come to around 300KB in total (no control over the size of these, due to terms of the Open Platform).
 
 So compared to the average news website section page being between 3-5MB, a page of between 7-300KB is a massive saving, helping to reduce page loads and minimise data usage for those on metered plans.
+
+Further reading
+
+[Medium post about building 2G News](https://medium.com/@stephenkeable/building-a-faster-news-website-46918b4fd147#.4smtcgram)

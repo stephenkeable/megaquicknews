@@ -1,0 +1,33 @@
+@import 'theme-variables';
+    
+section h1 {
+	background: $ents-colour;
+}
+@media(min-width:420px) {
+	section ul {
+		padding: 0 5px;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+	}
+	section ul:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	section ul li {
+		width: 300px;
+		margin: 10px 5px;
+		float: left;
+		height: 450px;
+		overflow: hidden;
+		display: inline-block;
+		padding: 10px;
+	}
+}
+section ul li img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin-bottom: 5px;
+}
