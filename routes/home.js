@@ -38,7 +38,7 @@ router.get('/', function (req, res, next) {
     }
 
     sass.render({
-      file: '/app/public/css/home'+device_string+'.scss',
+      file: path.join(__dirname, '../public/css/home'+device_string+'.scss'),
       outputStyle: 'compressed'
     }, function(err, result){
         
@@ -67,7 +67,7 @@ router.get('/about', function (req, res, next) {
     res.set("Vary", "Accept-Encoding");
 
     sass.render({
-      file: '/app/public/css/generic.scss',
+      file: path.join(__dirname, '../public/css/generic.scss'),
       outputStyle: 'compressed'
     }, function(err, result){
         

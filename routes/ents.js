@@ -4,6 +4,7 @@ var request = require('request');
 var express = require('express');
 var router = express.Router();
 
+var path = require('path');
 var device = require('device');
 var sass = require('node-sass');
 
@@ -11,7 +12,7 @@ var main_css = "";
 var ents_custom_css = "";
 
 sass.render({
-  file: '/app/public/css/main.scss',
+  file: path.join(__dirname, '../public/css/main.scss'),
   outputStyle: 'compressed'
 }, function(err, result){
     main_css = result.css;
@@ -109,7 +110,7 @@ router.get('/:section?', function (req, res, next) {
     }
 
     sass.render({
-      file: '/app/public/css/ents'+device_string+'.scss',
+      file: path.join(__dirname, '../public/css/ents'+device_string+'.scss'),
       outputStyle: 'compressed'
     }, function(err, result){
         
