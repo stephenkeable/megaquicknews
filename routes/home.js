@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+var path = require('path');
 var device = require('device');
 var sass = require('node-sass');
 
@@ -8,7 +9,7 @@ var main_css = "";
 var home_custom_css = "";
 
 sass.render({
-  file: '/app/public/css/main.scss',
+  file: path.join(__dirname, '../public/css/main.scss'),
   outputStyle: 'compressed'
 }, function(err, result){
     main_css = result.css;
