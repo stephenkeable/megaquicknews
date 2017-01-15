@@ -38,33 +38,12 @@ app.use(minifyHTML({
         minifyJS:                  true
     }
 }));
-
-// sniff out smart url
-app.set('smart',false);
-
-app.use(function (req, res, next) {
-    
-    if (req.hostname.indexOf("smart") > -1) {
-        app.set('smart',true);
-    }
-    
-    next();
-});
     
 
 // sections
 
-if (app.get('smart') == true) {
-
-    var home = require('./routes/home_smart');
-    app.use('/', home);
-    
-} else {
-
-    var home = require('./routes/home');
-    app.use('/', home);
-    
-}
+var home = require('./routes/home');
+app.use('/', home);
 
 var news = require('./routes/news');
 app.use('/news', news);

@@ -19,7 +19,32 @@ router.get('/', function (req, res, next) {
     
     res.locals.page_title = "2G News - News website designed to be fast even on a 2G phone.";
     
-    next();
+    if(req.hostname.indexOf("smart") > -1) {
+     
+        var guardian_section = 'uk-news';
+        var guardian_tags = '-theguardian/series/correctionsandclarifications,-theguardian/series/inside-guardian-weekly,-theobserver/series/for-the-record';
+
+        var request_url = "https://content.guardianapis.com/"+guardian_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+guardian_tags+"&show-fields=trailText,thumbnail&page-size=6";
+
+        request(request_url, function (error, response, body) {
+
+            if (!error && response.statusCode == 200) {
+
+                guardian_object = JSON.parse(body);
+
+                res.locals.news_items = guardian_object.response.results;
+
+            }
+
+            next();
+
+        });
+        
+    } else {
+    
+        next();
+        
+    }
     
 }, function (req, res) {
     
@@ -29,13 +54,18 @@ router.get('/', function (req, res, next) {
   
     var mydevice = device(req.headers['user-agent']);  
 
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
-        var view_name = "home-desktop";
-        device_string = "_desktop";
-
+    if(req.hostname.indexOf("smart") > -1) {
+        var view_name = "home-smart";
+        device_string = "_smart";
     } else {
-        var view_name = "home";
-        device_string = "";
+        if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
+            var view_name = "home-desktop";
+            device_string = "_desktop";
+
+        } else {
+            var view_name = "home";
+            device_string = "";
+        }
     }
 
     sass.render({

@@ -1,5 +1,21 @@
 <h1>Home</h1>
 
+<ul id="news-list">
+{{#each news_items}}
+<li>
+    {{#if @first}}
+    {{#if fields.thumbnail}}
+    <a href="{{ webUrl }}/amp"><img src="http://img.2gnews.com/placeholder.png" data-src="{{fields.thumbnail}}" alt="{{webTitle}}"></a>
+    {{/if}}
+    <p><strong>{{webTitle}}</strong><br>
+    {{striptags fields.trailText}}<br>
+    {{/if}}
+    <p><strong>{{webTitle}}</strong><br>
+        <a href="{{ webUrl }}/amp">Read more &raquo;</a> | <a href="{{ webUrl }}/">Desktop version &raquo;</a></p>
+</li>
+{{/each}}
+</ul>
+
 <h2 id='news'><a href="/news">News</a></h2>
 <ul>
     <li><a href="/news/uk">UK</a></li>

@@ -5,6 +5,9 @@ var path = require('path');
 var device = require('device');
 var sass = require('node-sass');
 
+var fs = require('fs');
+var request = require('request');
+
 var main_css = "";
 var home_custom_css = "";
 
@@ -18,8 +21,25 @@ sass.render({
 router.get('/', function (req, res, next) {
     
     res.locals.page_title = "2G News - News website designed to be fast even on a 2G phone.";
+       
+    var guardian_section = 'uk-news';
+    var guardian_tags = '-theguardian/series/correctionsandclarifications,-theguardian/series/inside-guardian-weekly,-theobserver/series/for-the-record';
     
-    next();
+    var request_url = "https://content.guardianapis.com/"+guardian_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+guardian_tags+"&show-fields=trailText,thumbnail&page-size=6";
+        
+    request(request_url, function (error, response, body) {
+
+        if (!error && response.statusCode == 200) {
+            
+            guardian_object = JSON.parse(body);
+            
+            res.locals.news_items = guardian_object.response.results;
+
+        }
+
+        next();
+        
+    });
     
 }, function (req, res) {
     
