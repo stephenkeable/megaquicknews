@@ -38,15 +38,21 @@ app.use(minifyHTML({
         minifyJS:                  true
     }
 }));
+
+// sniff out smart url
+var smart = false;
+app.use(function (req, res, next) {
+   if (hostname.indexOf("smart") > -1) {
+     smart = true;   
+   }
+    
+    next();
+});
     
 
 // sections
 
-
-
-var hostname = req.hostname;
-
-if (hostname.indexOf("smart") > -1) {
+if (smart == true) {
 
     var home = require('./routes/home_smart');
     app.use('/', home);
