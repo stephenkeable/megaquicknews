@@ -26,16 +26,27 @@ router.get('/', function (req, res, next) {
     //set cache control headers
 	res.set("Cache-Control","max-age=86400");
     res.set("Vary", "Accept-Encoding");
-
-    var mydevice = device(req.headers['user-agent']);      
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
-        var view_name = "home-desktop";
-        device_string = "_desktop";
-        
+  
+    var hostname = req.hostname;
+      
+    if (hostname.indexOf("smart") > -1) {
+    
+		var view_name = "home-smart";
+		device_string = "_smart";
+		
     } else {
-        var view_name = "home";
-        device_string = "";
-    }
+
+		var mydevice = device(req.headers['user-agent']);  
+
+		if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
+			var view_name = "home-desktop";
+			device_string = "_desktop";
+		
+		} else {
+			var view_name = "home";
+			device_string = "";
+		}
+	}
 
     sass.render({
       file: path.join(__dirname, '../public/css/home'+device_string+'.scss'),
