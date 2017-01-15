@@ -42,8 +42,21 @@ app.use(minifyHTML({
 
 // sections
 
-var home = require('./routes/home');
-app.use('/', home);
+
+
+var hostname = req.hostname;
+
+if (hostname.indexOf("smart") > -1) {
+
+    var home = require('./routes/home_smart');
+    app.use('/', home);
+    
+} else {
+
+    var home = require('./routes/home');
+    app.use('/', home);
+    
+}
 
 var news = require('./routes/news');
 app.use('/news', news);
