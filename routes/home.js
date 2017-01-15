@@ -5,6 +5,9 @@ var path = require('path');
 var device = require('device');
 var sass = require('node-sass');
 
+var fs = require('fs');
+var request = require('request');
+
 var main_css = "";
 var home_custom_css = "";
 
