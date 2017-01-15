@@ -42,7 +42,8 @@ app.use(minifyHTML({
 // sniff out smart url
 var smart = false;
 app.use(function (req, res, next) {
-   if (hostname.indexOf("smart") > -1) {
+    
+   if (req.hostname.indexOf("smart") > -1) {
      smart = true;   
    }
     
