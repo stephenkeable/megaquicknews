@@ -25,7 +25,7 @@ router.get('/', function (req, res, next) {
     if(req.hostname.indexOf("smart") > -1) {
      
         var guardian_section = 'uk-news';
-        var guardian_tags = '-theguardian/series/correctionsandclarifications,-theguardian/series/inside-guardian-weekly,-theobserver/series/for-the-record';
+        var guardian_tags = '-theguardian/series/correctionsandclarifications,-theguardian/series/inside-guardian-weekly,-theobserver/series/for-the-record,-tone/letters';
 
         var request_url = "https://content.guardianapis.com/"+guardian_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+guardian_tags+"&show-fields=trailText,thumbnail&page-size=6";
 
