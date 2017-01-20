@@ -37,3 +37,13 @@ section ul li img {
 	display: block;
 	margin-bottom: 5px;
 }
+#section-list li {
+    display: inline-block;
+}
+#section-list li a {
+    padding: 10px 20px;
+    margin: 5px 10px;
+    background: #eee;
+    border-radius:40px;
+    text-decoration:none;
+}
