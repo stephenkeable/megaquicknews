@@ -86,7 +86,6 @@ router.get('/', function (req, res, next) {
 }, function (req, res) {
     
     //set cache control headers
-	res.set("Cache-Control","max-age=86400");
     res.set("Vary", "Accept-Encoding");
   
     var mydevice = device(req.headers['user-agent']);  
@@ -94,10 +93,12 @@ router.get('/', function (req, res, next) {
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop') || req.hostname.indexOf("smart") > -1) {
         var view_name = "home-desktop";
         device_string = "_desktop";
+        res.set("Cache-Control","max-age=1800");
 
     } else {
         var view_name = "home";
         device_string = "";
+        res.set("Cache-Control","max-age=86400");
     }
 
     sass.render({
