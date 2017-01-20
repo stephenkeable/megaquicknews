@@ -19,6 +19,8 @@ sass.render({
 });
 
 router.get('/', function (req, res, next) {
+  
+    var mydevice = device(req.headers['user-agent']); 
     
     res.locals.page_title = "2G News - News website designed to be fast even on a 2G phone.";
     
