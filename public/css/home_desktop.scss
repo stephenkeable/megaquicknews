@@ -37,8 +37,12 @@ section ul li img {
 	display: block;
 	margin-bottom: 5px;
 }
+#section-list {
+    margin-bottom: 10px;
+}
 #section-list li {
     display: inline-block;
+    margin: 15px 0;
 }
 #section-list li a {
     padding: 10px 20px;
