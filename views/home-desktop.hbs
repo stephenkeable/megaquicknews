@@ -1,5 +1,22 @@
 <div>
     <h2 id='news'><a href="/news">News</a></h2>
+    <ul id="news-list">
+    {{#each news_items}}
+    <li>
+        {{#if @first}}
+        {{#if fields.thumbnail}}
+        <a href="{{ webUrl }}/amp"><img src="http://img.2gnews.com/placeholder.png" data-src="{{fields.thumbnail}}" alt="{{webTitle}}"></a>
+        {{/if}}
+        <p><strong>{{webTitle}}</strong><br>
+        {{striptags fields.trailText}}<br>
+        <a href="{{ webUrl }}/amp">Read more &raquo;</a></p><hr>
+        {{else}}
+        <p><strong>{{webTitle}}</strong><br>
+        <a href="{{ webUrl }}/amp">Read more &raquo;</a></p>
+        {{/if}}
+    </li>
+    {{/each}}
+    </ul>
     <ul>
         <li><a href="/news/uk">UK</a></li>
         <li><a href="/news/world">World</a></li>
@@ -12,6 +29,23 @@
 </div>
 <div>
     <h2 id='sport'><a href="/sport">Sport</a></h2>
+    <ul id="news-list">
+    {{#each sport_items}}
+    <li>
+        {{#if @first}}
+        {{#if fields.thumbnail}}
+        <a href="{{ webUrl }}/amp"><img src="http://img.2gnews.com/placeholder.png" data-src="{{fields.thumbnail}}" alt="{{webTitle}}"></a>
+        {{/if}}
+        <p><strong>{{webTitle}}</strong><br>
+        {{striptags fields.trailText}}<br>
+        <a href="{{ webUrl }}/amp">Read more &raquo;</a></p><hr>
+        {{else}}
+        <p><strong>{{webTitle}}</strong><br>
+        <a href="{{ webUrl }}/amp">Read more &raquo;</a></p>
+        {{/if}}
+    </li>
+    {{/each}}
+    </ul>
     <ul>
         <li><a href="/sport/football">Football</a></li>
         <li><a href="/sport/cricket">Cricket</a></li>
@@ -25,6 +59,23 @@
 </div>
 <div>
     <h2 id='ents'><a href="/entertainment">Entertainment</a></h2>
+    <ul id="news-list">
+    {{#each ents_items}}
+    <li>
+        {{#if @first}}
+        {{#if fields.thumbnail}}
+        <a href="{{ webUrl }}/amp"><img src="http://img.2gnews.com/placeholder.png" data-src="{{fields.thumbnail}}" alt="{{webTitle}}"></a>
+        {{/if}}
+        <p><strong>{{webTitle}}</strong><br>
+        {{striptags fields.trailText}}<br>
+        <a href="{{ webUrl }}/amp">Read more &raquo;</a></p><hr>
+        {{else}}
+        <p><strong>{{webTitle}}</strong><br>
+        <a href="{{ webUrl }}/amp">Read more &raquo;</a></p>
+        {{/if}}
+    </li>
+    {{/each}}
+    </ul>
     <ul>
         <li><a href="/entertainment/tv">TV</a></li>
         <li><a href="/entertainment/film">Film</a></li>
@@ -35,3 +86,79 @@
         <li><a href="/entertainment/art">Art</a></li>
     </ul>
 </div>
+<script>
+   
+    !function(window){
+  var $q = function(q, res){
+        if (document.querySelectorAll) {
+          res = document.querySelectorAll(q);
+        } else {
+          var d=document
+            , a=d.styleSheets[0] || d.createStyleSheet();
+          a.addRule(q,'f:b');
+          for(var l=d.all,b=0,c=[],f=l.length;b<f;b++)
+            l[b].currentStyle.f && c.push(l[b]);
+
+          a.removeRule(0);
+          res = c;
+        }
+        return res;
+      }
+    , addEventListener = function(evt, fn){
+        window.addEventListener
+          ? this.addEventListener(evt, fn, false)
+          : (window.attachEvent)
+            ? this.attachEvent('on' + evt, fn)
+            : this['on' + evt] = fn;
+      }
+    , _has = function(obj, key) {
+        return Object.prototype.hasOwnProperty.call(obj, key);
+      }
+    ;
+
+  function loadImage (el, fn) {
+    var img = new Image()
+      , src = el.getAttribute('data-src');
+    img.onload = function() {
+      if (!! el.parent)
+        el.parent.replaceChild(img, el)
+      else
+        el.src = src;
+
+      fn? fn() : null;
+    }
+    img.src = src;
+  }
+
+  function elementInViewport(el) {
+    var rect = el.getBoundingClientRect()
+
+    return (
+       rect.top    >= 0
+    && rect.left   >= 0
+    && rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+    )
+  }
+
+    var images = new Array()
+      , query = $q('#news-list img')
+      , processScroll = function(){
+          for (var i = 0; i < images.length; i++) {
+            if (elementInViewport(images[i])) {
+              loadImage(images[i], function () {
+                images.splice(i, i);
+              });
+            }
+          };
+        }
+      ;
+    // Array.prototype.slice.call is not callable under our lovely IE8 
+    for (var i = 0; i < query.length; i++) {
+      images.push(query[i]);
+    };
+
+    processScroll();
+    addEventListener('scroll',processScroll);
+
+}(this);​
+</script>

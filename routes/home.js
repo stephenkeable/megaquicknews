@@ -22,14 +22,14 @@ router.get('/', function (req, res, next) {
     
     res.locals.page_title = "2G News - News website designed to be fast even on a 2G phone.";
     
-    if(req.hostname.indexOf("smart") > -1) {
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop') || req.hostname.indexOf("smart") > -1) {
      
-        var guardian_section = 'uk-news';
-        var guardian_tags = '-theguardian/series/correctionsandclarifications,-theguardian/series/inside-guardian-weekly,-theobserver/series/for-the-record,-tone/letters';
+        var news_section = 'uk-news';
+        var news_tags = '-theguardian/series/correctionsandclarifications,-theguardian/series/inside-guardian-weekly,-theobserver/series/for-the-record,-tone/letters';
 
-        var request_url = "https://content.guardianapis.com/"+guardian_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+guardian_tags+"&show-fields=trailText,thumbnail&page-size=6";
+        var news_request_url = "https://content.guardianapis.com/"+news_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+news_tags+"&show-fields=trailText,thumbnail&page-size=6";
 
-        request(request_url, function (error, response, body) {
+        request(news_request_url, function (error, response, body) {
 
             if (!error && response.statusCode == 200) {
 
@@ -39,7 +39,41 @@ router.get('/', function (req, res, next) {
 
             }
 
-            next();
+            var sport_section = 'sport';
+            var sport_tags = '-tone/minutebyminute';
+
+            var sport_request_url = "https://content.guardianapis.com/"+sport_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+sport_tags+"&show-fields=trailText,thumbnail&page-size=6";
+
+            request(sport_request_url, function (error, response, body) {
+
+                if (!error && response.statusCode == 200) {
+
+                    guardian_object = JSON.parse(body);
+
+                    res.locals.sport_items = guardian_object.response.results;
+
+                }
+
+                var ents_section = 'culture';
+                var ents_tags = 'type/article';
+
+                var ents_request_url = "https://content.guardianapis.com/"+ents_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+ents_tags+"&show-fields=trailText,thumbnail&page-size=6";
+
+                request(ents_request_url, function (error, response, body) {
+
+                    if (!error && response.statusCode == 200) {
+
+                        guardian_object = JSON.parse(body);
+
+                        res.locals.ents_items = guardian_object.response.results;
+
+                    }
+
+                    next();
+
+                });
+
+            });
 
         });
         
@@ -57,18 +91,13 @@ router.get('/', function (req, res, next) {
   
     var mydevice = device(req.headers['user-agent']);  
 
-    if(req.hostname.indexOf("smart") > -1) {
-        var view_name = "home-smart";
-        device_string = "_smart";
-    } else {
-        if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
-            var view_name = "home-desktop";
-            device_string = "_desktop";
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop') || req.hostname.indexOf("smart") > -1) {
+        var view_name = "home-desktop";
+        device_string = "_desktop";
 
-        } else {
-            var view_name = "home";
-            device_string = "";
-        }
+    } else {
+        var view_name = "home";
+        device_string = "";
     }
 
     sass.render({
