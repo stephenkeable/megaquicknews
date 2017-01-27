@@ -1,6 +1,5 @@
 <div id='news'>
     <h2><a href="/news">News</a></h2>
-    <ul id="news-list">
     {{#each news_items}}
     {{#if @first}}
     <div class="lead">
@@ -64,7 +63,6 @@
 </div>
 <div id='ents'>
     <h2><a href="/entertainment">Entertainment</a></h2>
-    <ul id="news-list">
     {{#each ents_items}}
         {{#if @first}}
         <div class="lead">
@@ -149,7 +147,7 @@
   }
 
     var images = new Array()
-      , query = $q('#news-list img')
+      , query = $q('section img')
       , processScroll = function(){
           for (var i = 0; i < images.length; i++) {
             if (elementInViewport(images[i])) {
