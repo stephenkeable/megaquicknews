@@ -3,7 +3,7 @@ body {
     background: #ddd;
 }
     
-@media(min-width:420px) {
+@media(min-width:769px) {
 	section {
 		display: flex;
 		flex-flow: row wrap;
@@ -35,7 +35,7 @@ h2 a {
 	background: $ents-colour;
 }
 .lead {
-    margin: 0 10px 10px 10px;
+    margin: 0 10px 20px 10px;
     background: #fff;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
 }
@@ -52,6 +52,7 @@ h2 a {
     padding: 10px;
     background: #fff;
     margin: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
 }
 #news .lead, #news .news-list {
     border-bottom: 5px solid $news-colour;
