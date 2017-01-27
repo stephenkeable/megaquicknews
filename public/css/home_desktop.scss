@@ -1,6 +1,6 @@
 @import 'theme-variables';
 body {
-    background: #fff;
+    background: #ddd;
 }
     
 @media(min-width:420px) {
@@ -8,6 +8,7 @@ body {
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: center;
+        padding: 10px;
 	}
 	#news, #sport, #ents {
 		flex-grow: 2;
@@ -18,6 +19,7 @@ body {
 }
 h2 {
 	padding: 5px 10px;
+    margin: 10px 10px 0 10px;
 }
 h2 a {
 	color: #fff;
@@ -32,11 +34,32 @@ h2 a {
 #ents h2, #ents .section-list li a {
 	background: $ents-colour;
 }
+.lead {
+    margin: 0 10px;
+    background: #fff;
+}
+.lead p {
+    margin: 10px;
+}
 .lead img {
 	max-width: 100%;
 	height: auto;
 	display: block;
 	margin-bottom: 5px;
+}
+.news-list {
+    padding: 10px;
+    background: #fff;
+    margin: 10px;
+}
+#news .lead, #news .news-list {
+    border-bottom: 5px solid $news-colour;
+}
+#sport .lead, #sport .news-list {
+    border-bottom: 5px solid $sport-colour;
+}
+#ents .lead, #ents .news-list {
+    border-bottom: 5px solid $ents-colour;
 }
 .section-list {
     margin-bottom: 10px;
