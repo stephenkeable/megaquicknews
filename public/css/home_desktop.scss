@@ -23,13 +23,13 @@ h2 a {
 	color: #fff;
 	text-decoration: none;
 }
-#news {
+#news h2, #news .section-list li {
 	background: $news-colour;
 }
-#sport {
+#sport h2, #sport .section-list li {
 	background: $sport-colour;
 }
-#ents {
+#ents h2, #ents .section-list li {
 	background: $ents-colour;
 }
 section ul li img {
@@ -38,17 +38,18 @@ section ul li img {
 	display: block;
 	margin-bottom: 5px;
 }
-#section-list {
+.section-list {
     margin-bottom: 10px;
 }
-#section-list li {
+.section-list li {
     display: inline-block;
     margin: 15px 0;
 }
-#section-list li a {
+.section-list li a {
     padding: 10px 20px;
     margin: 5px 10px;
     background: #eee;
+    color:#fff;
     border-radius:40px;
     text-decoration:none;
 }
