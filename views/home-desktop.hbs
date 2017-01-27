@@ -2,21 +2,24 @@
     <h2><a href="/news">News</a></h2>
     <ul id="news-list">
     {{#each news_items}}
-    <li>
-        {{#if @first}}
+    {{#if @first}}
+    <div class="lead">
         {{#if fields.thumbnail}}
         <a href="{{ webUrl }}/amp"><img src="http://img.2gnews.com/placeholder.png" data-src="{{fields.thumbnail}}" alt="{{webTitle}}"></a>
         {{/if}}
         <p><strong>{{webTitle}}</strong><br>
         {{striptags fields.trailText}}<br>
         <a href="{{ webUrl }}/amp">Read more &raquo;</a></p><hr>
+    </div>
+    <ul class="news-list">
         {{else}}
+        <li>
         <p><strong>{{webTitle}}</strong><br>
         <a href="{{ webUrl }}/amp">Read more &raquo;</a></p>
-        {{/if}}
     </li>
+        {{#if @last}}</ul>{{/if}}
+        {{/if}}
     {{/each}}
-    </ul>
     <ul class='section-list'>
         <li><a href="/news/uk">UK</a></li>
         <li><a href="/news/world">World</a></li>
@@ -39,7 +42,7 @@
         {{striptags fields.trailText}}<br>
         <a href="{{ webUrl }}/amp">Read more &raquo;</a></p><hr>
     </div>
-    <ul id="news-list">
+    <ul class="news-list">
         {{else}}
         <li>
         <p><strong>{{webTitle}}</strong><br>
@@ -48,7 +51,6 @@
         {{#if @last}}</ul>{{/if}}
         {{/if}}
     {{/each}}
-    </ul>
     <ul class='section-list'>
         <li><a href="/sport/football">Football</a></li>
         <li><a href="/sport/cricket">Cricket</a></li>
@@ -64,21 +66,24 @@
     <h2><a href="/entertainment">Entertainment</a></h2>
     <ul id="news-list">
     {{#each ents_items}}
-    <li>
         {{#if @first}}
-        {{#if fields.thumbnail}}
-        <a href="{{ webUrl }}/amp"><img src="http://img.2gnews.com/placeholder.png" data-src="{{fields.thumbnail}}" alt="{{webTitle}}"></a>
-        {{/if}}
-        <p><strong>{{webTitle}}</strong><br>
-        {{striptags fields.trailText}}<br>
-        <a href="{{ webUrl }}/amp">Read more &raquo;</a></p><hr>
-        {{else}}
-        <p><strong>{{webTitle}}</strong><br>
-        <a href="{{ webUrl }}/amp">Read more &raquo;</a></p>
-        {{/if}}
-    </li>
+        <div class="lead">
+            {{#if fields.thumbnail}}
+            <a href="{{ webUrl }}/amp"><img src="http://img.2gnews.com/placeholder.png" data-src="{{fields.thumbnail}}" alt="{{webTitle}}"></a>
+            {{/if}}
+            <p><strong>{{webTitle}}</strong><br>
+            {{striptags fields.trailText}}<br>
+            <a href="{{ webUrl }}/amp">Read more &raquo;</a></p><hr>
+        </div>
+        <ul class="news-list">
+            {{else}}
+            <li>
+            <p><strong>{{webTitle}}</strong><br>
+            <a href="{{ webUrl }}/amp">Read more &raquo;</a></p>
+        </li>
+            {{#if @last}}</ul>{{/if}}
+            {{/if}}
     {{/each}}
-    </ul>
     <ul class='section-list'>
         <li><a href="/entertainment/tv">TV</a></li>
         <li><a href="/entertainment/film">Film</a></li>
