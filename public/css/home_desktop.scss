@@ -9,7 +9,7 @@ body {
 		flex-flow: row wrap;
 		justify-content: center;
 	}
-	section div {
+	#news, #sport, #ents {
 		flex-grow: 2;
 		float: left;
 		display: inline-block;
