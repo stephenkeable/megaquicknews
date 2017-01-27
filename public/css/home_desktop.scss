@@ -35,8 +35,9 @@ h2 a {
 	background: $ents-colour;
 }
 .lead {
-    margin: 0 10px;
+    margin: 0 10px 10px 10px;
     background: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
 }
 .lead p {
     margin: 10px;
