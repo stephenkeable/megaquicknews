@@ -23,13 +23,13 @@ h2 a {
 	color: #fff;
 	text-decoration: none;
 }
-#news h2, #news .section-list li {
+#news h2, #news .section-list li a {
 	background: $news-colour;
 }
-#sport h2, #sport .section-list li {
+#sport h2, #sport .section-list li a {
 	background: $sport-colour;
 }
-#ents h2, #ents .section-list li {
+#ents h2, #ents .section-list li a {
 	background: $ents-colour;
 }
 .lead img {
@@ -48,7 +48,6 @@ h2 a {
 .section-list li a {
     padding: 10px 20px;
     margin: 5px 10px;
-    background: #eee;
     color:#fff;
     border-radius:40px;
     text-decoration:none;
