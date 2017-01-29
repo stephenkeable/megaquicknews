@@ -106,7 +106,7 @@ router.get('/:section?', function (req, res, next) {
     res.set("Vary", "Accept-Encoding");
 
     var mydevice = device(req.headers['user-agent']);      
-    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop')) {
+    if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop') || req.hostname.indexOf("smart") > -1) {
         var view_name = "sport-desktop";
         device_string = "_desktop";
     } else {
