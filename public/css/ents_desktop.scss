@@ -3,36 +3,40 @@
 section h1 {
 	background: $ents-colour;
 }
-@media(min-width:420px) {
-	section ul {
-		padding: 0 5px;
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: center;
-	}
-	section ul:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
-	section ul li {
-		width: 300px;
-		margin: 15px 10px 5px 10px;
-		float: left;
-		height: 450px;
-		overflow: hidden;
-		display: inline-block;
-        box-shadow: 0 0 8px rgba(0,0,0,0.25);
-        border-bottom: 5px solid $ents-colour;
-        background: #fff;
-	}
-	section ul li p {
-        padding: 10px 15px;
-    }
+section ul {
+    padding: 0 5px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 }
+section ul:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+section ul li {
+    width: 300px;
+    margin: 15px 10px 5px 10px;
+    float: left;
+    overflow: hidden;
+    display: inline-block;
+    box-shadow: 0 0 8px rgba(0,0,0,0.25);
+    border-bottom: 5px solid $ents-colour;
+    background: #fff;
+}
+section ul li p {
+    padding: 10px 15px;
+}
+
 section ul li img {
 	max-width: 100%;
 	height: auto;
 	display: block;
 	margin-bottom: 5px;
+}
+
+@media(min-width:769px) {
+    section ul li {
+        height: 450px;
+    }
 }
