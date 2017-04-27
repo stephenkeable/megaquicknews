@@ -71,7 +71,7 @@ router.get('/:section?', function (req, res, next) {
         
         guardian_section = 'world';
         page_title = 'Indian News';
-        guardian_tags = 'tone/news&q=india';
+        guardian_tags = 'tone/news,world/india';
         
     }  else {
         
