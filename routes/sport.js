@@ -67,7 +67,7 @@ router.get('/:section?', function (req, res, next) {
         page_title = 'Rugby Union News';
         guardian_tags = '-tone/minutebyminute,sport/rugby-union';
         
-    } else if (req.params.section == 'rugyby-league') {
+    } else if (req.params.section == 'rugby-league') {
         
         guardian_section = 'sport';
         page_title = 'Rugby League News';
