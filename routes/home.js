@@ -102,6 +102,12 @@ router.get('/', function (req, res, next) {
         device_string = "";
         res.set("Cache-Control","max-age=86400");
     }
+    
+    var is_india = false;
+    
+    if (reg.get('CloudFront-Viewer-Country') == "IN") {
+        is_india = true;
+    }
 
     sass.render({
       file: path.join(__dirname, '../public/css/home'+device_string+'.scss'),
@@ -114,7 +120,8 @@ router.get('/', function (req, res, next) {
             title: res.locals.page_title,
             website: req.website,
             main_css: main_css,
-            custom_css: home_custom_css
+            custom_css: home_custom_css,
+            is_india: is_india
         });
     });
     
