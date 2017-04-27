@@ -105,7 +105,7 @@ router.get('/', function (req, res, next) {
     
     var is_india = false;
     
-    if (reg.get('CloudFront-Viewer-Country') == "IN") {
+    if (req.get('CloudFront-Viewer-Country') == "IN") {
         is_india = true;
     }
 
