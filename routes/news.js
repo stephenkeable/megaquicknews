@@ -67,6 +67,12 @@ router.get('/:section?', function (req, res, next) {
         page_title = 'Money News';
         guardian_tags = 'tone/news';
         
+    } else if (req.params.section == 'india') {
+        
+        guardian_section = 'world';
+        page_title = 'Indian News';
+        guardian_tags = 'tone/news&q=india';
+        
     }  else {
         
         guardian_section = 'news';
