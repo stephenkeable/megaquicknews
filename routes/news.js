@@ -31,6 +31,18 @@ router.get('/:section?', function (req, res, next) {
         page_title = 'UK News';
         guardian_tags = 'tone/news';
         
+    } else if (req.params.section == 'us') {
+        
+        guardian_section = 'us-news';
+        page_title = 'US News';
+        guardian_tags = 'tone/news';
+        
+    } else if (req.params.section == 'australia') {
+        
+        guardian_section = 'australia-news';
+        page_title = 'Austrailia News';
+        guardian_tags = 'tone/news';
+        
     } else if (req.params.section == 'world') {
         
         guardian_section = 'world';
