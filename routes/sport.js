@@ -94,7 +94,7 @@ router.get('/:section?', function (req, res, next) {
     }  else if (req.params.section == 'afl') {
         
         guardian_section = 'au/sport';
-        page_title = 'NFL News';
+        page_title = 'AFL News';
         guardian_tags = '-tone/minutebyminute,sport/afl';
         
     }  else {

@@ -40,7 +40,7 @@ router.get('/:section?', function (req, res, next) {
     } else if (req.params.section == 'australia') {
         
         guardian_section = 'australia-news';
-        page_title = 'Austrailia News';
+        page_title = 'Australia News';
         guardian_tags = 'tone/news';
         
     } else if (req.params.section == 'world') {
