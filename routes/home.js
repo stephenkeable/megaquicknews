@@ -104,15 +104,15 @@ router.get('/', function (req, res, next) {
     }
     
     if (req.get('CloudFront-Viewer-Country') == "IN") {
-        view_name = view_name + "_in";
+        view_name = view_name + "-in";
     }
     
     if (req.get('CloudFront-Viewer-Country') == "US") {
-        view_name = view_name + "_us";
+        view_name = view_name + "-us";
     }
     
     if (req.get('CloudFront-Viewer-Country') == "AU") {
-        view_name = view_name + "_au";
+        view_name = view_name + "-au";
     }
 
     sass.render({
