@@ -37,7 +37,7 @@ router.get('/', function (req, res, next) {
         }
 
         if (req.get('CloudFront-Viewer-Country') == "AU") {
-            news_section = 'au-news';
+            news_section = 'australia-news';
         }
         
         var news_tags = '-theguardian/series/correctionsandclarifications,-theguardian/series/inside-guardian-weekly,-theobserver/series/for-the-record,-tone/letters';
