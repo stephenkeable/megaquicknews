@@ -26,7 +26,20 @@ router.get('/', function (req, res, next) {
     
     if (req.get('CloudFront-Is-Desktop-Viewer') == "true" || mydevice.is('desktop') || req.hostname.indexOf("smart") > -1) {
      
-        var news_section = 'uk-news';
+        var news_section = 'world';
+        
+        if (req.get('CloudFront-Viewer-Country') == "GB") {
+            news_section = 'uk-news';
+        }
+
+        if (req.get('CloudFront-Viewer-Country') == "US") {
+            news_section = 'us-news';
+        }
+
+        if (req.get('CloudFront-Viewer-Country') == "AU") {
+            news_section = 'au-news';
+        }
+        
         var news_tags = '-theguardian/series/correctionsandclarifications,-theguardian/series/inside-guardian-weekly,-theobserver/series/for-the-record,-tone/letters';
 
         var news_request_url = "https://content.guardianapis.com/"+news_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+news_tags+"&show-fields=trailText,thumbnail&page-size=6";
