@@ -103,10 +103,16 @@ router.get('/', function (req, res, next) {
         res.set("Cache-Control","max-age=86400");
     }
     
-    var is_india = false;
-    
     if (req.get('CloudFront-Viewer-Country') == "IN") {
-        is_india = true;
+        view_name = view_name + "_in";
+    }
+    
+    if (req.get('CloudFront-Viewer-Country') == "US") {
+        view_name = view_name + "_us";
+    }
+    
+    if (req.get('CloudFront-Viewer-Country') == "AU") {
+        view_name = view_name + "_au";
     }
 
     sass.render({
@@ -120,8 +126,7 @@ router.get('/', function (req, res, next) {
             title: res.locals.page_title,
             website: req.website,
             main_css: main_css,
-            custom_css: home_custom_css,
-            is_india: is_india
+            custom_css: home_custom_css
         });
     });
     
