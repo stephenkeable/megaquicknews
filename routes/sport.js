@@ -91,6 +91,12 @@ router.get('/:section?', function (req, res, next) {
         page_title = 'MLB News';
         guardian_tags = '-tone/minutebyminute,sport/mlb';
         
+    }  else if (req.params.section == 'mls') {
+        
+        guardian_section = 'us/sport';
+        page_title = 'MLS News';
+        guardian_tags = '-tone/minutebyminute,sport/mls';
+        
     }  else if (req.params.section == 'afl') {
         
         guardian_section = 'au/sport';
