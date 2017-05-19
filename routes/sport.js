@@ -95,7 +95,7 @@ router.get('/:section?', function (req, res, next) {
         
         guardian_section = 'us/sport';
         page_title = 'MLS News';
-        guardian_tags = '-tone/minutebyminute,sport/mls';
+        guardian_tags = '-tone/minutebyminute,football/mls';
         
     }  else if (req.params.section == 'afl') {
         
