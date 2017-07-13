@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Portal for old phone users",
   "engines": {
-    "node": "5.9.1"
+    "node": "6.11.1"
   },
   "main": "app.js",
   "scripts": {
