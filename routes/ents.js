@@ -55,12 +55,6 @@ router.get('/:section?', function (req, res, next) {
         page_title = 'Stage News';
         guardian_tags = 'type/article';
         
-    } else if (req.params.section == 'games') {
-        
-        guardian_section = 'search';
-        page_title = 'Games News';
-        guardian_tags = 'technology/games';
-        
     } else if (req.params.section == 'art') {
         
         guardian_section = 'artanddesign';
