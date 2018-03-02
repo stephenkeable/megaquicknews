@@ -29,87 +29,89 @@ router.get('/:section?', function (req, res, next) {
         
         guardian_section = 'football';
         page_title = 'Football News';
-        guardian_tags = '-tone/minutebyminute';
+        guardian_tags = '';
         
     } else if (req.params.section == 'cricket') {
         
         guardian_section = 'sport';
         page_title = 'Cricket News';
-        guardian_tags = '-tone/minutebyminute,sport/cricket';
+        guardian_tags = 'sport/cricket';
         
     } else if (req.params.section == 'f1') {
         
         guardian_section = 'sport';
         page_title = 'F1 News';
-        guardian_tags = '-tone/minutebyminute,sport/formulaone';
+        guardian_tags = 'sport/formulaone';
         
     } else if (req.params.section == 'tennis') {
         
         guardian_section = 'sport';
         page_title = 'Tennis News';
-        guardian_tags = '-tone/minutebyminute,sport/tennis';
+        guardian_tags = 'sport/tennis';
         
     } else if (req.params.section == 'golf') {
         
         guardian_section = 'sport';
         page_title = 'Golf News';
-        guardian_tags = '-tone/minutebyminute,sport/golf';
+        guardian_tags = 'sport/golf';
         
     } else if (req.params.section == 'cycling') {
         
         guardian_section = 'sport';
         page_title = 'Cycling News';
-        guardian_tags = '-tone/minutebyminute,sport/cycling';
+        guardian_tags = 'sport/cycling';
         
     } else if (req.params.section == 'rugby-union') {
         
         guardian_section = 'sport';
         page_title = 'Rugby Union News';
-        guardian_tags = '-tone/minutebyminute,sport/rugby-union';
+        guardian_tags = 'sport/rugby-union';
         
     } else if (req.params.section == 'rugby-league') {
         
         guardian_section = 'sport';
         page_title = 'Rugby League News';
-        guardian_tags = '-tone/minutebyminute,sport/rugbyleague';
+        guardian_tags = 'sport/rugbyleague';
         
     }  else if (req.params.section == 'nfl') {
         
         guardian_section = 'us/sport';
         page_title = 'NFL News';
-        guardian_tags = '-tone/minutebyminute,sport/nfl';
+        guardian_tags = 'sport/nfl';
         
     }  else if (req.params.section == 'nba') {
         
         guardian_section = 'us/sport';
         page_title = 'NBA News';
-        guardian_tags = '-tone/minutebyminute,sport/nba';
+        guardian_tags = 'sport/nba';
         
     }  else if (req.params.section == 'mlb') {
         
         guardian_section = 'us/sport';
         page_title = 'MLB News';
-        guardian_tags = '-tone/minutebyminute,sport/mlb';
+        guardian_tags = 'sport/mlb';
         
     }  else if (req.params.section == 'mls') {
         
         guardian_section = 'us/sport';
         page_title = 'MLS News';
-        guardian_tags = '-tone/minutebyminute,football/mls';
+        guardian_tags = 'football/mls';
         
     }  else if (req.params.section == 'afl') {
         
         guardian_section = 'au/sport';
         page_title = 'AFL News';
-        guardian_tags = '-tone/minutebyminute,sport/afl';
+        guardian_tags = 'sport/afl';
         
     }  else {
         
         guardian_section = 'sport';
         page_title = 'Sport';
-        guardian_tags = '-tone/minutebyminute';
+        guardian_tags = '';
         
     } 
+	
+    guardian_tags += ",-tone/minutebyminute,-tone/blog";
     
     var request_url = "https://content.guardianapis.com/"+guardian_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+guardian_tags+"&show-fields=trailText,thumbnail&page-size=12";
         
