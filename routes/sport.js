@@ -111,7 +111,7 @@ router.get('/:section?', function (req, res, next) {
         
     } 
 	
-    guardian_tags += ",-tone/minutebyminute,-tone/blog";
+    guardian_tags += ",-tone/minutebyminute,-tone/blog,tone/news";
     
     var request_url = "https://content.guardianapis.com/"+guardian_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+guardian_tags+"&show-fields=trailText,thumbnail&page-size=12";
         

@@ -40,7 +40,7 @@ router.get('/', function (req, res, next) {
             news_section = 'australia-news';
         }
         
-        var news_tags = '-theguardian/series/correctionsandclarifications,-theguardian/series/inside-guardian-weekly,-theobserver/series/for-the-record,-tone/letters,-tone/blog,-tone/minutebyminute';
+        var news_tags = '-theguardian/series/correctionsandclarifications,-theguardian/series/inside-guardian-weekly,-theobserver/series/for-the-record,-tone/letters,-tone/blog,-tone/minutebyminute,tone/news';
 
         var news_request_url = "https://content.guardianapis.com/"+news_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+news_tags+"&show-fields=trailText,thumbnail&page-size=6";
 
@@ -55,7 +55,7 @@ router.get('/', function (req, res, next) {
             }
 
             var sport_section = 'sport';
-            var sport_tags = '-tone/blog,-tone/minutebyminute';
+            var sport_tags = '-tone/blog,-tone/minutebyminute,tone/news';
 
             var sport_request_url = "https://content.guardianapis.com/"+sport_section+"?api-key="+req.app.get('guardian_api_key')+"&order-by=newest&tag="+sport_tags+"&show-fields=trailText,thumbnail&page-size=6";
 
